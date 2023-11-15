@@ -25,7 +25,7 @@ int main()
             int j = 7000;
             cout << "in another scope" << endl;
             cout << "i is " << i << ", ::i is " << ::i << endl;
-            cout << "j is " << j << ", ::J is " << ::j << endl;
+            cout << "j is " << j << ", ::j is " << ::j << endl;
         }
 
         cout << "after innermost scope" << endl;
