@@ -10,6 +10,8 @@ class Message;
 
 class Folder {
 public:
+    Folder();
+    
     Folder(const string&);
 
     ~Folder();

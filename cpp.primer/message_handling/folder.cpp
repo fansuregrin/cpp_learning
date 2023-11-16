@@ -1,15 +1,19 @@
 #include "folder.h"
 #include "message.h"
 
-Folder::Folder(const string& name_ = "Default"):
+Folder::Folder():
+name("NonNameFolder") {
+
+}
+
+Folder::Folder(const string& name_):
 name(name_) {
 
 }
 
 Folder::~Folder() {
-    for (set<Message*>::const_iterator it=messages.begin();
-    it!=messages.end(); ++it) {
-        (*it)->remove(*this);
+    while (!messages.empty()) {
+        (*messages.begin())->remove(*this);
     }
 }
 

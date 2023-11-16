@@ -1,7 +1,7 @@
 #include "message.h"
 #include "folder.h"
 
-Message::Message(const string& str = ""):
+Message::Message(const string& str):
 contents(str) {
     
 }
@@ -17,7 +17,9 @@ Message& Message::operator=(const Message& rhs) {
     contents = rhs.contents;  // copy contents from `rhs`
     folders = rhs.folders; // copy Folder pointers from `rhs`
     // add this Message to each Folder in `rhs`
-    put_msg_in_folders(rhs.folders); 
+    put_msg_in_folders(rhs.folders);
+
+    return *this;
 }
 
 void Message::put_msg_in_folders(const set<Folder*>& folders_) {
@@ -41,7 +43,7 @@ Message::~Message() {
 
 void Message::save(Folder& folder) {
     folder.add_msg(this);
-    folders.erase(&folder);
+    folders.insert(&folder);
 }
 
 void Message::remove(Folder& folder) {
