@@ -12,6 +12,8 @@ class Folder {
 public:
     Folder(const string&);
 
+    ~Folder();
+
     void add_msg(Message *);
 
     void rm_msg(Message *);
