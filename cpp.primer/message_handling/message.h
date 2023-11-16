@@ -27,6 +27,8 @@ public:
 
     // Remove this Message from specified Folder's set of messages
     void remove(Folder&);
+
+    ostream& display(ostream&);
 private:
     string contents;  // Actual message text
     set<Folder*> folders;  // Folders that have this Message

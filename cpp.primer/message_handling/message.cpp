@@ -1,3 +1,4 @@
+#include <iostream>
 #include "message.h"
 #include "folder.h"
 
@@ -49,4 +50,9 @@ void Message::save(Folder& folder) {
 void Message::remove(Folder& folder) {
     folder.rm_msg(this);
     folders.erase(&folder);
+}
+
+ostream& Message::display(ostream& out) {
+    out << contents << "\n";
+    return out;
 }

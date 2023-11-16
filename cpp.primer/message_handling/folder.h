@@ -11,7 +11,7 @@ class Message;
 class Folder {
 public:
     Folder();
-    
+
     Folder(const string&);
 
     ~Folder();
@@ -19,6 +19,8 @@ public:
     void add_msg(Message *);
 
     void rm_msg(Message *);
+
+    ostream& display_msgs(ostream&);
 private:
     string name;
     set<Message*> messages;

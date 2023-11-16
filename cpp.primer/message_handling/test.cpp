@@ -19,6 +19,8 @@ int main() {
         msg5.save(tmp);
         msg5.save(favorites);
         msg2.save(tmp);
+        favorites.display_msgs(cout);
+        tmp.display_msgs(cout);
     }
 
     msg1.save(sent);
