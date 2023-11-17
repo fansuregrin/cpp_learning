@@ -29,5 +29,7 @@ int main() {
     msg4.save(inbox);
     msg3.save(favorites);
 
+    inbox.display_msgs(cout);
+
     return 0;
 }
