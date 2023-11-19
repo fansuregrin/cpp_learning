@@ -44,6 +44,16 @@ public:
 
     CheckedPtr operator++(int);  // postfix increment operator
     CheckedPtr operator--(int);  // postfix increment operator
+
+    // implement equality operator
+    bool operator==(const CheckedPtr& rhs) {
+        return beg == rhs.beg && end == rhs.end;
+    }
+
+    // implement inequality operator
+    bool operator!=(const CheckedPtr& rhs) {
+        return !(*this == rhs);
+    }
 private:
     int * beg;   // pointer to beginning of the array
     int * end;   // one past the end of the array
@@ -87,9 +97,14 @@ CheckedPtr CheckedPtr::operator--(int) {
 
 int main() {
     int arr[5] = {1, 2, 3, 4, 5};
+    int arr2[6] = {5, 4, 3, 2, 1, 0};
 
     CheckedPtr p(&arr[0], &arr[4]);
+    CheckedPtr p2(&arr2[0], &arr2[5]);
+    CheckedPtr p3 = p;
+    const CheckedPtr p4(p);
 
+    // call postfix increment operator of `p`
     while (true) {
         try {
             cout << *p++ << endl;
@@ -99,12 +114,29 @@ int main() {
         }
     }
 
+    // call subscript operator of `p`
     cout << "p[3] = " << p[3] << endl;
+    cout << "before changing value: p[4] = " << p[4] << endl;
+    p[4] = 15;
+    cout << "after changing value: p[4] = " << p[4] << endl;
 
     try {
         cout << "p[5] = " << p[5] << endl;
     } catch (exception& e) {
         cout << e.what() << endl;
+    }
+
+    // call equality/inequality operator of `CheckedPtr`
+    if (p == p3) {
+        cout << "p == p3" << endl;
+    } else {
+        cout << "p != p3" << endl;
+    }
+
+    if (p == p2) {
+        cout << "p == p2" << endl;
+    } else {
+        cout << "p != p2" << endl;
     }
 
     return 0;
