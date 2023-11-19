@@ -13,12 +13,30 @@ public:
     // no default constructor; CheckedPtrs must be bound to an object
     CheckedPtr(int *b, int *e): beg(b), end(e), curr(b) {}
 
+    // overload dereference operator (non-const version)
     int& operator*() {
         return *curr;
     }
 
+    // overload dereference operator (const version)
     const int& operator*() const {
         return *curr;
+    }
+
+    // overload subscript operator (non-const version)
+    int& operator[](const size_t index) {
+        if (index > end-beg) {
+            throw out_of_range("index of range");
+        }
+        return *(beg + index);
+    }
+
+    // overload subscript operator (const version)
+    const int& operator[](const size_t index) const {
+        if (index > (end-beg)/sizeof(int)) {
+            throw out_of_range("index of range");
+        }
+        return *(beg + index);
     }
     
     CheckedPtr& operator++();  // prefix increment operator
@@ -79,6 +97,14 @@ int main() {
             cout << e.what() << endl;
             break;
         }
+    }
+
+    cout << "p[3] = " << p[3] << endl;
+
+    try {
+        cout << "p[5] = " << p[5] << endl;
+    } catch (exception& e) {
+        cout << e.what() << endl;
     }
 
     return 0;
