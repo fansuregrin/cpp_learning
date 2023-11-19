@@ -33,7 +33,7 @@ public:
 
     // overload subscript operator (const version)
     const int& operator[](const size_t index) const {
-        if (index > (end-beg)/sizeof(int)) {
+        if (index > end-beg) {
             throw out_of_range("index of range");
         }
         return *(beg + index);
