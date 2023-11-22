@@ -46,6 +46,29 @@ public:
     operator int() const {
         return val;
     }
+
+    // explicit Conversion Operators
+    //
+    // Under earlier versions of the standard, classes that wanted to define
+    // a conversion to bool faced a problem: Because bool is an arithmetic type,
+    // a class-type object that is converted to bool can be used in any context 
+    // where an arithmetic type is expected.
+    //
+    // To prevent such problems, the new standard introduced explicit conversion
+    // operators.
+
+    // the compiler won’t (generally) use an explicit conversion operator
+    // for implicit conversions.
+    // But there is an exception:
+    // The exception is that the compiler will apply an explicit conversion
+    // implicitly to an expression used as a condition.
+
+    // Conversion to bool is usually intended for use in conditions. As a result,
+    // operator bool ordinarily should be defined as explicit.
+
+    explicit operator bool() const {
+        return !(val == 0);
+    }
 private:
     size_t val;
 };
@@ -64,4 +87,8 @@ int main() {
     // the `SmallInt` conversion operator converts `si2` to `int`;
     // then `int` is converted to `double` using the built-in conversion
     cout << "si2 + 0.13 = " << si2 + 0.13 << endl;
+    
+    if (si) {
+        cout << "si" << endl;
+    }
 }
