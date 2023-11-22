@@ -80,6 +80,44 @@ void f2(long double x) {}
 // ---------------------------------------------------------------------
 
 
+// ---------------------------------------------------------------------
+// Overloaded Functions and Converting Constructors
+//
+// ambiguity problems can arise when overloaded functions take parameters that
+// differ by class types that define the same converting constructors:
+
+class D {
+public:
+    D(int) {}
+};
+
+class E {
+public:
+    E(int) {}
+};
+
+void manip(const D&) {}
+void manip(const E&) {}
+// ---------------------------------------------------------------------
+
+// ---------------------------------------------------------------------
+// Overloaded Functions and User-Defined Conversion
+
+class F {
+public:
+    F(int) {}
+};
+
+class G {
+public:
+    G(double) {}
+};
+
+void manip2(const F&) {}
+void manip2(const G&) {}
+// ---------------------------------------------------------------------
+
+
 int main() {
     B b(3.14);
 
@@ -124,6 +162,24 @@ int main() {
     // path 1) is better than 2)
     // bcz promoting `short` to `int` is better than converting `short` to `double`
     C c3(sh);  // ok
+
+    // error: call of overloaded ‘manip(int)’ is ambiguous
+    //
+    // manip(10);
+    manip(D(10)); // ok
+
+    // error: call of overloaded ‘manip2(int)’ is ambiguous
+    // 1) int -> F
+    // and 
+    // 2) int -> double -> G
+    // are considered euqally
+    // 
+    // In a call to an overloaded function, the rank of an additional standard
+    // conversion (if any) matters only if the viable functions require the 
+    // same user-defined conversion. If different user-defined conversions 
+    // are needed, then the call is ambiguous.
+    // 
+    // manip2(10);
 
     return 0;   
 }
