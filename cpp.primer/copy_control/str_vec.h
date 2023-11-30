@@ -19,7 +19,27 @@ public:
 
     ~StrVec();
 
+    // move constructor
+    StrVec(StrVec && sv) noexcept: 
+    elements(sv.elements), first_free(sv.first_free), cap(sv.cap) {}
+
+    StrVec& operator=(StrVec && rhs) noexcept {
+        // direct test for self-assignment
+        if (this != &rhs) {
+            free();  // free existing elements
+            // take over resources from rhs
+            elements = rhs.elements;
+            first_free = rhs.first_free;
+            cap = rhs.cap;
+            // leave `rhs` in a destructible state
+            rhs.elements = rhs.first_free = rhs.cap = nullptr;
+        }
+        return *this;
+    }
+
     void push_back(const string&);
+
+    void push_back(string &&);
 
     size_type size() const {
         return first_free - elements;
@@ -66,6 +86,11 @@ void StrVec::push_back(const string& s) {
     chk_n_alloc();  // ensure that there is room for another element
     // construct a copy of `s` in the element to which first_free points
     alloc.construct(first_free++, s);
+}
+
+void StrVec::push_back(string&& s) {
+    chk_n_alloc();  // ensure that there is room for another element
+    alloc.construct(first_free++, std::move(s));
 }
 
 pair<string*,string*>
