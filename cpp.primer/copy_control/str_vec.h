@@ -118,7 +118,7 @@ void StrVec::reallocate() {
     auto dst = new_data;  // points to the next free position in the new array
     auto src = elements;  // points to the next element in the old array
     for (size_type i=0; i!=size(); ++i) {
-        alloc.construct(dst++, move(*src++));
+        alloc.construct(dst++, std::move(*src++));
     }
     free();  // free the old space once we've moved the elements
     elements = new_data;
