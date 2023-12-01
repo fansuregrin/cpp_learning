@@ -12,6 +12,8 @@ using namespace std;
 class StrBlob {
 public:
     typedef vector<string>::size_type size_type;
+    typedef vector<string>::iterator iterator;
+    typedef vector<string>::const_iterator const_iterator;
 
     StrBlob(): data(make_shared<vector<string>>()) {}
 
@@ -40,10 +42,25 @@ public:
         return data->front();
     }
 
+    const string& front() const {
+        check(0, "front on empty StrBlob");
+        return data->front();
+    }
+
     string& back() {
         check(0, "back on empty StrBlob");
         return data->back();
     }
+
+    const string& back() const {
+        check(0, "back on empty StrBlob");
+        return data->back();
+    }
+
+    iterator begin() { return data->begin(); }
+    const_iterator begin() const { return data->begin(); }
+    iterator end() { return data->end(); }
+    const_iterator end() const { return data->end(); }
 private:
     shared_ptr<vector<string>> data;
 
