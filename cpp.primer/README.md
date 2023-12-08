@@ -21,7 +21,7 @@
     - General and Specific Template Friendship
     - Befriending the Template’s Own Type Parameter
 - [Template Type Aliases](./template_and_generic_programming/template_type_aliases.cpp)
-- `static` Members of Class Templates
+- [`static` Members of Class Templates](./template_and_generic_programming/static_member_of_class_template.cpp)
 
 examples:
 - [Blob](./template_and_generic_programming/blob.h)
