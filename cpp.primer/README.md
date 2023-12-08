@@ -8,6 +8,15 @@
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
 - [code](./template_and_generic_programming/func_template_demo1.cpp)
+- Defining a Function Template
+- Instantiating a Function Template
+- Template Type Parameters
+- Nontype Template Parameters
+- `inline` and `constexpr` Function Templates
+- Writing Type-Independent Code
+- Template Compilation
+- Compilation Errors Are Mostly Reported during Instantiation
+
 ##### 16.1.2. Class Templates
 - Defining a Class Template
 - Instantiating a Class Template
