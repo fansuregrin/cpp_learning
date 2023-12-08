@@ -8,8 +8,20 @@
 
 using namespace std;
 
+// forward declarations needed for friend declarations in Blob
+template <typename T> class BlobPtr;
+template <typename T> class Blob;  // needed for parameters in operator==
+
+template <typename T>
+bool operator==(const Blob<T> &, const Blob<T> &);
+
 template<typename T>
 class Blob {
+    // each instantiation of Blob grants access to the version of
+    // BlobPtr and the equality operator instantiated with the same type
+
+    friend class BlobPtr<T>;
+    friend bool operator==<T>(const Blob<T> &, const Blob<T> &);
 public:
     typedef T value_type;
     typedef typename vector<T>::size_type size_type;
@@ -78,6 +90,11 @@ template <typename T>
 T& Blob<T>::operator[](Blob<T>::size_type i) {
     check(i, "subscript out of range");
     return (*data)[i];
+}
+
+template<typename T>
+bool operator==(const Blob<T> & lhs, const Blob<T> & rhs) {
+    return *lhs.data == *rhs.data;
 }
 
 #endif
