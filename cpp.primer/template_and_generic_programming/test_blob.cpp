@@ -23,5 +23,11 @@ int main() {
     }
     cout << "squares: " << squares << endl;
 
+    Blob<string> grp1 = {"apple", "banana"};
+    Blob<string> grp2 = {"apple", "banana"};
+    cout << "grp1: " << grp1 << "\n" << "grp2: " << grp2 << endl;
+
+    cout << (grp1 == grp2 ? "grp1 == grp2" : "grp1 != grp2") << endl;
+
     return 0;
 }
