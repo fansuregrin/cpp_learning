@@ -23,4 +23,10 @@
 - [Template Type Aliases](./template_and_generic_programming/template_type_aliases.cpp)
 - `static` Members of Class Templates
 
+examples:
+- [Blob](./template_and_generic_programming/blob.h)
+- [test_blob](./template_and_generic_programming/test_blob.cpp)
+- [BlobPtr](./template_and_generic_programming/blob_ptr.h)
+- [test_blob_ptr](./template_and_generic_programming/test_blob_ptr.cpp)
+
 ## Part IV: Advanced Topics
