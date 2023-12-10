@@ -44,6 +44,7 @@ examples:
 - Template Parameters and Scope
 - Template Declarations
 - Using Class Members That Are Types
-- Default Template Arguments
+- [Default Template Arguments](./template_and_generic_programming/default_template_args.cpp)
+- [Template Default Arguments and Class Templates](./template_and_generic_programming/class_templates_default_args.cpp)
 
 ## Part IV: Advanced Topics
