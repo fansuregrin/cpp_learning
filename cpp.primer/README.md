@@ -40,4 +40,10 @@ examples:
 - [BlobPtr](./template_and_generic_programming/blob_ptr.h)
 - [test_blob_ptr](./template_and_generic_programming/test_blob_ptr.cpp)
 
+##### 16.1.3. Template Parameters
+- Template Parameters and Scope
+- Template Declarations
+- Using Class Members That Are Types
+- Default Template Arguments
+
 ## Part IV: Advanced Topics
