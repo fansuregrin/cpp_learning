@@ -33,6 +33,8 @@ public:
     Blob(initializer_list<T> il):
     data(make_shared<vector<T>>(il)) {}
 
+    template <typename It> Blob(It b, It e);
+
     size_type size() const {
         return data->size();
     }
@@ -85,6 +87,10 @@ private:
         }
     }
 };
+
+template <typename T>    // type parameter list for the class
+template <typename It>   // type parameter list for the constructor
+Blob<T>::Blob(It b, It e): data(make_shared<vector<T>>(b, e)) {}
 
 template <typename T>
 T& Blob<T>::operator[](Blob<T>::size_type i) {
