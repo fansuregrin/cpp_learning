@@ -47,4 +47,9 @@ examples:
 - [Default Template Arguments](./template_and_generic_programming/default_template_args.cpp)
 - [Template Default Arguments and Class Templates](./template_and_generic_programming/class_templates_default_args.cpp)
 
+##### 16.1.4. Member Templates
+- [Member Templates of Ordianary (Nontemplate) Classes](./template_and_generic_programming/member_templates_of_nontemplate_classes.cpp)
+- Member Templates of Class Templates
+- [Instantiation and Member Templates](./template_and_generic_programming/test_blob_2.cpp)
+
 ## Part IV: Advanced Topics
