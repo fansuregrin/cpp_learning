@@ -78,4 +78,7 @@ examples:
 - Function Parameters That Use the Same Template Parameter Type
 - Normal Conversions Apply for Ordinary Arguments
 
+examples:
+- [example code](./template_and_generic_programming/conversions_and_temp_type_params.cpp)
+
 ## Part IV: Advanced Topics
