@@ -110,6 +110,6 @@ examples:
 - Writing Template Functions with Rvalue Reference Parameters
 
 examples:
-- [demo1](./template_and_generic_programming/template_type_deduction_and_refrences.cpp)
+- [demo1](./template_and_generic_programming/template_type_deduction_and_references.cpp)
 
 ## Part IV: Advanced Topics
