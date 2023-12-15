@@ -97,4 +97,10 @@ examples:
 examples:
 - [example code](./template_and_generic_programming/trailing_return_types.cpp)
 
+##### 16.2.4. Function Pointers and Argument Deduction
+> When we initialize or assign a function pointer from a function template, the compiler uses the type of the pointer to deduce the template argument(s).
+
+examples:
+- [example code](./template_and_generic_programming/func_pointers_and_args_deduction.cpp)
+
 ## Part IV: Advanced Topics
