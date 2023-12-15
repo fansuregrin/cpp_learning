@@ -81,4 +81,12 @@ examples:
 examples:
 - [example code](./template_and_generic_programming/conversions_and_temp_type_params.cpp)
 
+##### 16.2.2. Function-Template Explicit Arguments
+> In some situations, it is not possible for the compiler to deduce the types of the template arguments. In others, we want to allow the user to control the template instantiation. Both cases arise most often when a function return type differs from any of those used in the parameter list.
+- Specifying an Explicit Template Argument
+- Normal Conversions Apply for Explicitly Specified Arguments
+
+examples:
+- [example code](./template_and_generic_programming/func-template_explicit_args.cpp)
+
 ## Part IV: Advanced Topics
