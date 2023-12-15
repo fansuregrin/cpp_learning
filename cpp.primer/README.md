@@ -103,4 +103,13 @@ examples:
 examples:
 - [example code](./template_and_generic_programming/func_pointers_and_args_deduction.cpp)
 
+##### 16.2.5. Template Argument Deduction and References
+- Type Deduction from Lvalue Reference Function Parameters
+- Type Deduction from Rvalue Reference Function Parameters
+- Reference Collapsing and Rvalue Reference Parameters
+- Writing Template Functions with Rvalue Reference Parameters
+
+examples:
+- [demo1](./template_and_generic_programming/template_type_deduction_and_refrences.cpp)
+
 ## Part IV: Advanced Topics
