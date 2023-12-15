@@ -52,4 +52,15 @@ examples:
 - Member Templates of Class Templates
 - [Instantiation and Member Templates](./template_and_generic_programming/test_blob_2.cpp)
 
+##### 16.1.5. Controlling Instantiations
+
+In large systems, the overhead of instantiating the same template in multiple files
+can become significant. Under the new standard (i.e., c++11), we can avoid this overhead through
+an explicit instantiation. **This can reduce compilation time**.
+
+- Instantiation Definitions Instantiate All Members
+
+examples:
+- [explicit instantiation demo](./template_and_generic_programming/explicit_instantiation_demo/)
+
 ## Part IV: Advanced Topics
