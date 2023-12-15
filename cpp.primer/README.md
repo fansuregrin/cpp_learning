@@ -70,4 +70,12 @@ examples:
 - `shared_ptr` Binding the Deleter at Run Time
 - `unique_ptr` Binding the Deleter at Compile Time
 
+#### 16.2. Template Argument Deduction
+##### 16.2.1. Conversions and Template Type Parameters
+> `const` conversions and array or function to pointer are the only automatic conversions for arguments to parameters with template types.
+
+> Normal conversions are applied to arguments whose type is not a template parameter.
+- Function Parameters That Use the Same Template Parameter Type
+- Normal Conversions Apply for Ordinary Arguments
+
 ## Part IV: Advanced Topics
