@@ -63,4 +63,11 @@ an explicit instantiation. **This can reduce compilation time**.
 examples:
 - [explicit instantiation demo](./template_and_generic_programming/explicit_instantiation_demo/)
 
+##### 16.1.6. Efficiency and Flexibility
+
+> The library smart pointer types (i.e., `shared_ptr` and `unique_ptr`) offer a good illustration of design choices faced by designers of templates. The obvious difference between `shared_ptr` and `unique_ptr` is the strategy they use in managing the pointer they hold—one class gives us shared ownership; the other owns the pointer that it holds. This difference is essential to what these classes do. These classes also differ in how they let users override their default deleter. We can easily override the deleter of a `shared_ptr` by passing a callable object when we create or reset the pointer. In contrast, the type of the deleter is part of the type of a `unique_ptr` object. Users must supply that type as an explicit template argument when they define a `unique_ptr`. As a result, it is more complicated for users of `unique_ptr` to provide their own deleter.
+
+- `shared_ptr` Binding the Deleter at Run Time
+- `unique_ptr` Binding the Deleter at Compile Time
+
 ## Part IV: Advanced Topics
