@@ -89,4 +89,12 @@ examples:
 examples:
 - [example code](./template_and_generic_programming/func-template_explicit_args.cpp)
 
+##### 16.2.3. Trailing Return Types and Type Transformation
+> Using an explicit template argument to represent a template function’s return type works well when we want to let the user determine the return type. In other cases, requiring an explicit template argument imposes a burden on the user with no compensating advantage.
+
+- [The Type Transformation Library Template Classes](./template_and_generic_programming/type_transformation.cpp)
+
+examples:
+- [example code](./template_and_generic_programming/trailing_return_types.cpp)
+
 ## Part IV: Advanced Topics
