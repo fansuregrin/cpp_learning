@@ -113,4 +113,11 @@ examples:
 - [demo1](./template_and_generic_programming/template_type_deduction_and_references.cpp)
 - [demo2](./template_and_generic_programming/template_functions_with_rvalue_ref_params.cpp)
 
+##### 16.2.6. Understanding `std::move`
+- How `std::move` Is Defined
+- How `std::move` Works
+- `static_cast` from an Lvalue to an Rvalue Reference Is Permitted
+
+
+
 ## Part IV: Advanced Topics
