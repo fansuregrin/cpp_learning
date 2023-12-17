@@ -111,5 +111,6 @@ examples:
 
 examples:
 - [demo1](./template_and_generic_programming/template_type_deduction_and_references.cpp)
+- [demo2](./template_and_generic_programming/template_functions_with_rvalue_ref_params.cpp)
 
 ## Part IV: Advanced Topics
