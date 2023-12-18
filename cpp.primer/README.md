@@ -118,6 +118,8 @@ examples:
 - How `std::move` Works
 - `static_cast` from an Lvalue to an Rvalue Reference Is Permitted
 
+examples:
+- [demo1](./template_and_generic_programming/understand_move.cpp)
 
 
 ## Part IV: Advanced Topics
