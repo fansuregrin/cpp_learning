@@ -121,5 +121,13 @@ examples:
 examples:
 - [demo1](./template_and_generic_programming/understand_move.cpp)
 
+##### 16.2.7. Forwarding
+> Some functions need to forward one or more of their arguments with their types unchanged to another, forwarded-to, function. In such cases, we need to preserve everything about the forwarded arguments, including whether or not the argument type is const, and whether the argument is an lvalue or an rvalue.
+
+- Defining Function Parameters That Retain Type Information
+- Using `std::forward` to Preserve Type Information in a Call
+
+examples:
+- [demo1](./template_and_generic_programming/forwarding.cpp)
 
 ## Part IV: Advanced Topics
