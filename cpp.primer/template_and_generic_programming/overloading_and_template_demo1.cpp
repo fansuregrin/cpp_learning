@@ -1,4 +1,7 @@
 // topic: overloading and template
+//  - Multiple Viable Templates
+//  - Nontemplate and Template Overloads
+//  - Overloaded Templates and Conversions
 
 #include <string>
 #include <sstream>
