@@ -16,7 +16,7 @@ string debug_rep(const T &t) {
     return ret.str(); // return a copy of the string to which ret is bound
 }
 
-// print pointers as their pointer value, followed by the object to which the pointer pointsv
+// print pointers as their pointer value, followed by the object to which the pointer points
 template <typename T>
 string debug_rep(T *p) {
     ostringstream ret;
