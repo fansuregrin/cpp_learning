@@ -141,4 +141,9 @@ examples:
 - [demo2](./template_and_generic_programming/overloading_and_template_demo2.cpp)
 - [demo3](./template_and_generic_programming/overloading_and_template_demo3.cpp)
 
+#### 16.4. Variadic Templates
+> A variadic template is a template function or class that can take a varying number of parameters. The varying parameters are known as a parameter pack. There are two kinds of parameter packs: A template parameter pack represents zero or more template parameters, and a function parameter pack represents zero or more function parameters.
+> We use an ellipsis to indicate that a template or function parameter represents a pack. In a template parameter list, class... or typename... indicates that the following parameter represents a list of zero or more types; the name of a type followed by an ellipsis represents a list of zero or more nontype parameters of the given type. In the function parameter list, a parameter whose type is a template parameter pack is a function parameter pack.
+
+
 ## Part IV: Advanced Topics
