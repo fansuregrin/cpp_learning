@@ -45,5 +45,19 @@ int main() {
     // calls `std::string debug_rep<std::string>(std::string *p)`
     cout << debug_rep(&s) << endl;
 
+    const string * sp = &s;
+
+    // Note:
+    // When there are several overloaded templates that provide an equally good
+    // match for a call, the most specialized version is preferred.
+
+    // There are two viable instantiations:
+    //   1) `debug_rep(const string* &)`, instantiation of `debug_rep(const T &)`
+    //   2) `debug_rep(const string*)`, instantiation of `debug_rep(T *)`
+    // Due to the special rule for overloaded function templates, this call resolves
+    // to debug_rep(T*), which is the more **specialized** template.
+    // calls `std::string debug_rep<const std::string>(const std::string *p)`
+    cout << debug_rep(sp) << endl;
+
     return 0;
 }

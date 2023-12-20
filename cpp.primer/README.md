@@ -132,8 +132,12 @@ examples:
 
 #### 16.3. Overloading and Templates
 - Writing Overloaded Templates
+- Multiple Viable Templates
+- Nontemplate and Template Overloads
+- Missing Declarations Can Cause the Program to Misbehave
 
 examples:
 - [demo1](./template_and_generic_programming/overloading_and_template_demo1.cpp)
+- [demo2](./template_and_generic_programming/overloading_and_template_demo2.cpp)
 
 ## Part IV: Advanced Topics
