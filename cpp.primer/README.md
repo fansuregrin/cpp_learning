@@ -149,6 +149,8 @@ examples:
 - [demo1](./template_and_generic_programming/variadic_templates_demo1.cpp)
 
 ##### 16.4.1. Writing a Variadic Function Template
+##### 16.4.2. Pack Expansion
+
 examples:
 - [variadic print](./template_and_generic_programming/variadic_print.cpp)
 
