@@ -41,6 +41,14 @@ examples:
 examples:
 - [demo](./copy_control/preventing_copies.cpp)
 
+#### 13.2. Copy Control and Resource Management
+##### 13.2.1. Classes That Act Like Values
+examples:
+- [`HasPtr` acts like a value](./copy_control/has_ptr_demo1.cpp)
+##### 13.2.2. Defining Classes That Act Like Pointers
+examples:
+- [`HasPtr` acts like a pointer](./copy_control/has_ptr_demo2.cpp)
+
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
