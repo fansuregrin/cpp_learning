@@ -70,6 +70,13 @@ examples:
 examples:
 - [demo](./copy_control/r-value_ref_demo.cpp)
 ##### 13.6.2. Move Constructor and Move Assignment
+##### 13.6.3. Rvalue References and Member Functions
+- Rvalue and Lvalue Reference Member Functions
+- Overloading and Reference Functions
+
+examples:
+- [demo1: reference member functions](./copy_control/lvalue_and_rvalue_ref_member_funcs.cpp)
+- [demo2: overloading and reference functions](./copy_control/overloading_and_ref_funcs.cpp)
 
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
