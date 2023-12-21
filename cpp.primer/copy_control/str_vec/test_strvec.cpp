@@ -29,6 +29,7 @@ int main() {
     StrVec sv3;
     sv3 = sv2;
     sv3[2] = "^-^";
+    sv3.emplace_back(5, '9');
 
     cout << "sv1: " << sv1 << endl;
     cout << "sv2: " << sv2 << endl;

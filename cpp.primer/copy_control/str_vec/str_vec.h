@@ -62,6 +62,12 @@ public:
     string& operator[](size_type pos) {
         return *(elements+pos);
     }
+
+    template <typename ... Args>
+    inline void emplace_back(Args && ... args) {
+        chk_n_alloc();
+        alloc.construct(first_free++, std::forward<Args>(args)...);
+    }
 private:
     allocator<string> alloc;  // allocates the elements
     string * elements;  // pointer to the first element in the array

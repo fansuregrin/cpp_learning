@@ -228,4 +228,8 @@ examples:
 examples:
 - [variadic print](./template_and_generic_programming/variadic_print.cpp)
 
+##### 16.4.3. Forwarding Parameter Packs
+examples:
+- [`emplace_back` of `StrVec`](./copy_control/str_vec/str_vec.h)
+
 ## Part IV: Advanced Topics
