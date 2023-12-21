@@ -4,6 +4,41 @@
 ## Part I: The Basics
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
+### Chapter 13. Copy Control
+#### 13.1. Copy, Assign, and Destroy
+##### 13.1.1. The Copy Constructor
+- The Synthesized Copy Constructor
+- Copy Initialization
+- Parameters and Return Values
+- Constraints on Copy Initialization
+- The Compiler Can Bypass the Copy Constructor
+
+examples:
+- [copy constructor demo](./copy_control/copy_constructor_demo.cpp)
+
+##### 13.1.2. The Copy-Assignment Operator
+- Introducing Overloaded Assignment
+- The Synthesized Copy-Assignment Operator
+
+##### 13.1.3. The Destructor
+- What a Destructor Does
+- When a Destructor Is Called
+- The Synthesized Destructor
+
+##### 13.1.4. The Rule of Three/Five
+- Classes That Need Destructors Need Copy and Assignment
+- Classes That Need Copy Need Assignment, and Vice Versa
+
+##### 13.1.5. Using `= default`
+
+##### 13.1.6. Preventing Copies
+- Defining a Function as Deleted
+- The Destructor Should Not be a Deleted Member
+- The Copy-Control Members May Be Synthesized as Deleted
+- `private` Copy Control
+
+
+
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
