@@ -1,6 +1,7 @@
 // topic: function template
 
 #include <iostream>
+#include <cstring>
 
 using namespace std;
 
@@ -59,6 +60,13 @@ InputIt find(InputIt first, InputIt last, const T& val) {
     return last;
 }
 
+// Nontype Template Parameters
+
+template <unsigned N, unsigned M>
+int compare(const char (&p1)[N], const char (&p2)[M]) {
+    return strcmp(p1, p2);
+}
+
 int main() {
     // call `int get_min<int>(int a, int b)`
     cout << "minima of " << 3 << " and " << 4 << ": " << get_min(3, 4) << endl;
@@ -74,6 +82,8 @@ int main() {
     int arr[5] = {1, 2, 3, 4, 5};
     int * it = find(arr, arr+5, 3);
     if (it != arr+5) cout << "found \"" << *it << "\"!" << endl;
+
+    compare("monkey", "cat");
 
     return 0;
 }
