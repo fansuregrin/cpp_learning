@@ -65,6 +65,12 @@ examples:
 examples:
 - [StrVec](./copy_control/str_vec/)
 
+#### 13.6. Moving Objects
+##### 13.6.1. Rvalue References
+examples:
+- [demo](./copy_control/r-value_ref_demo.cpp)
+##### 13.6.2. Move Constructor and Move Assignment
+
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
