@@ -14,7 +14,8 @@
 - The Compiler Can Bypass the Copy Constructor
 
 examples:
-- [copy constructor demo](./copy_control/copy_constructor_demo.cpp)
+- [copy constructor demo1](./copy_control/copy_constructor_demo.cpp)
+- [copy constructor demo2](./copy_control/copy_constructor_demo2.cpp)
 
 ##### 13.1.2. The Copy-Assignment Operator
 - Introducing Overloaded Assignment
@@ -37,7 +38,8 @@ examples:
 - The Copy-Control Members May Be Synthesized as Deleted
 - `private` Copy Control
 
-
+examples:
+- [demo](./copy_control/preventing_copies.cpp)
 
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
