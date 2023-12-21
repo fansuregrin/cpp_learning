@@ -57,6 +57,14 @@ examples:
 examples:
 - [swap demo](./copy_control/swap_demo.cpp)
 
+#### 13.4. A Copy-Control Example
+examples:
+- [message handling (from CPP Primer 4th Edition)](./copy_control/message_handling)
+
+#### 13.5. Classes That Manage Dynamic Memory
+examples:
+- [StrVec](./copy_control/str_vec/)
+
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
