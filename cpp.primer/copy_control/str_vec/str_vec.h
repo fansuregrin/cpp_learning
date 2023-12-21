@@ -21,7 +21,10 @@ public:
 
     // move constructor
     StrVec(StrVec && sv) noexcept: 
-    elements(sv.elements), first_free(sv.first_free), cap(sv.cap) {}
+    elements(sv.elements), first_free(sv.first_free), cap(sv.cap) {
+        // leave sv in a state in which it is safe to run the destructor
+        sv.elements = sv.first_free = sv.cap = nullptr;
+    }
 
     StrVec& operator=(StrVec && rhs) noexcept {
         // direct test for self-assignment
