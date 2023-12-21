@@ -49,6 +49,14 @@ examples:
 examples:
 - [`HasPtr` acts like a pointer](./copy_control/has_ptr_demo2.cpp)
 
+#### 13.3. Swap
+- Writing Our Own swap Function
+- `swap` Functions Should Call `swap`, Not `std::swap`
+- Using `swap` in Assignment Operators
+
+examples:
+- [swap demo](./copy_control/swap_demo.cpp)
+
 ### Chapter 16. Templates and Generic Programming
 #### 16.1 Defining a Template
 ##### 16.1.1. Function Templates
