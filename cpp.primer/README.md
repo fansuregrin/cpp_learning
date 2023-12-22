@@ -270,9 +270,11 @@ examples:
 - Defining a Function Template Specialization
 - Function Overloading versus Template Specializations
 - Class Template Specializations
+- Class-Template Partial Specializations
 
 examples:
 - [function template specialization](./template_and_generic_programming/func_template_specialization.cpp)
 - [class template specialization](./template_and_generic_programming/class_template_specialization_demo/)
+- [class template partial specialization](./template_and_generic_programming/class_template_specialization_demo/partial_specialization_demo.cpp)
 
 ## Part IV: Advanced Topics
