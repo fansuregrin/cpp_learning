@@ -273,5 +273,6 @@ examples:
 
 examples:
 - [function template specialization](./template_and_generic_programming/func_template_specialization.cpp)
+- [class template specialization](./template_and_generic_programming/class_template_specialization_demo/)
 
 ## Part IV: Advanced Topics
