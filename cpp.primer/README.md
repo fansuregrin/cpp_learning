@@ -2,6 +2,40 @@
 
 ## Chapter 1. Getting Started
 ## Part I: The Basics
+
+### Chapter 7. Classes
+#### 7.1. Defining Abstract Data Types
+##### 7.1.1. Designing the Sales_data Class
+examples:
+- [`SalesData` class](./classes/sales_data/)
+##### 7.1.2. Defining the Revised Sales_data Class
+- Defining Member Functions
+- Introducing `this`
+- Introducing `const` Member Functions
+- Class Scope and Member Functions
+- Defining a Member Function outside the Class
+- Defining a Function to Return “This” Object
+##### 7.1.3. Defining Nonmember Class-Related Functions
+- Defining the `read` and `print` Functions
+- Defining the `add` Function
+##### 7.1.4. Constructors
+- The Synthesized Default Constructor
+- Some Classes Cannot Rely on the Synthesized Default Constructor
+- Defining the `Sales_data` Constructors
+- What `= default` Means
+- Constructor Initializer List
+- Defining a Constructor outside the Class Body
+##### 7.1.5. Copy, Assignment, and Destruction
+
+#### 7.2. Access Control and Encapsulation
+> In C++ we use access specifiers to enforce encapsulation:
+>   • Members defined after a public specifier are accessible to all parts of the program. The public members define the interface to the class.
+>   • Members defined after a private specifier are accessible to the member functions of the class but are not accessible to code that uses the class. The private sections encapsulate (i.e., hide) the implementation.
+- Using the `class` or `struct` Keyword
+##### 7.2.1. Friends
+> A class can allow another class or function to access its nonpublic members by making that class or function a friend. 
+- Declarations for Friends
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
