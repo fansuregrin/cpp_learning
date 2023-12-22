@@ -232,4 +232,12 @@ examples:
 examples:
 - [`emplace_back` of `StrVec`](./copy_control/str_vec/str_vec.h)
 
+#### 16.5. Template Specializations
+- Defining a Function Template Specialization
+- Function Overloading versus Template Specializations
+- Class Template Specializations
+
+examples:
+- [function template specialization](./template_and_generic_programming/func_template_specialization.cpp)
+
 ## Part IV: Advanced Topics
