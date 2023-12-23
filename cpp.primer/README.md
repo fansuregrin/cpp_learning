@@ -279,4 +279,11 @@ examples:
 - [class template partial specialization](./template_and_generic_programming/class_template_specialization_demo/partial_specialization_demo.cpp)
 - [specializing members of the class template](./template_and_generic_programming/class_template_specialization_demo/specializing_the_member_demo.cpp)
 
+### Chapter 17. Specialized Library Facilities
+#### 17.1. The tuple Type
+examples:
+- [demo1](./specialized_library_facilities/tuple_demo1.cpp)
+##### 17.1.1. Defining and Initializing `tuple`s
+##### 17.1.2. Using a `tuple` to Return Multiple Values
+
 ## Part IV: Advanced Topics
