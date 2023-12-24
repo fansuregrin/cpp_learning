@@ -13,6 +13,13 @@
 ##### 2.4.2. Pointers and `const`
 ##### 2.4.3. Top-Level const
 ##### 2.4.4. `constexpr` and Constant Expressions
+> A constant expression is an expression **whose value cannot change** and that **can be evaluated at compile time**. A *literal* is a constant expression. A *const object that is initialized from a constant expression* is also a constant expression.
+- `constexpr` Variables
+- Literal Types
+- Pointers and `constexpr`
+
+examples:
+- [demo](./variables_and_basic_types/const_expr_demo.cpp)
 
 #### 2.5. Dealing with Types
 #### 2.6. Defining Our Own Data Structures
