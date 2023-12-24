@@ -2,6 +2,20 @@
 
 ## Chapter 1. Getting Started
 ## Part I: The Basics
+### Chapter 2. Variables and Basic Types
+#### 2.1. Primitive Built-in Types
+#### 2.2. Variables
+#### 2.3. Compound Types
+#### 2.4. const Qualifier
+- Initialization and `const`
+- By Default, `const` Objects Are Local to a File
+##### 2.4.1. References to `const`
+##### 2.4.2. Pointers and `const`
+##### 2.4.3. Top-Level const
+##### 2.4.4. `constexpr` and Constant Expressions
+
+#### 2.5. Dealing with Types
+#### 2.6. Defining Our Own Data Structures
 
 ### Chapter 7. Classes
 #### 7.1. Defining Abstract Data Types
@@ -286,5 +300,9 @@ examples:
 - [demo2](./specialized_library_facilities/tuple_demo2/)
 ##### 17.1.1. Defining and Initializing `tuple`s
 ##### 17.1.2. Using a `tuple` to Return Multiple Values
+
+#### 17.2. The `bitset` Type
+##### 17.2.1. Defining and Initializing bitsets
+
 
 ## Part IV: Advanced Topics
