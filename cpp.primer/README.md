@@ -309,7 +309,9 @@ examples:
 ##### 17.1.2. Using a `tuple` to Return Multiple Values
 
 #### 17.2. The `bitset` Type
-##### 17.2.1. Defining and Initializing bitsets
-
+examples:
+- [demo1](./specialized_library_facilities/bitset_demo1.cpp)
+##### 17.2.1. Defining and Initializing `bitset`s
+##### 17.2.2. Operations on `bitset`s
 
 ## Part IV: Advanced Topics
