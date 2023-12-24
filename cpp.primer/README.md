@@ -283,6 +283,7 @@ examples:
 #### 17.1. The tuple Type
 examples:
 - [demo1](./specialized_library_facilities/tuple_demo1.cpp)
+- [demo2](./specialized_library_facilities/tuple_demo2/)
 ##### 17.1.1. Defining and Initializing `tuple`s
 ##### 17.1.2. Using a `tuple` to Return Multiple Values
 
