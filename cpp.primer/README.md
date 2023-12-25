@@ -314,4 +314,16 @@ examples:
 ##### 17.2.1. Defining and Initializing `bitset`s
 ##### 17.2.2. Operations on `bitset`s
 
+#### 17.3. Regular Expressions
+##### 17.3.1. Using the Regular Expression Library
+- Specifying Options for a `regex` Object
+- Errors in Specifying or Using a Regular Expression
+- Regular Expression Classes and the Input Sequence Type
+
+examples:
+- [demo1](./specialized_library_facilities/regex_demos/regex_demo1.cpp)
+- [demo2: specifying options](./specialized_library_facilities/regex_demos/regex_demo2.cpp)
+- [demo3: catching errors](./specialized_library_facilities/regex_demos/regex_demo3.cpp)
+- [demo4](./specialized_library_facilities/regex_demos/regex_demo4.cpp)
+
 ## Part IV: Advanced Topics
