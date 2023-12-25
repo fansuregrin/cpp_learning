@@ -334,4 +334,13 @@ examples:
 - [demo1](./specialized_library_facilities/regex_demos/regex_iter_demo1.cpp)
 - [demo2](./specialized_library_facilities/regex_demos/regex_iter_demo2.cpp)
 
+##### 17.3.3. Using Subexpressions
+> A pattern in a regular expression often contains one or more subexpressions. A subexpression is a part of the pattern that itself has meaning. Regular-expression grammars typically use parentheses to denote subexpressions.
+- Subexpressions for Data Validation
+- Using the Submatch Operations
+
+examples:
+- [demo1](./specialized_library_facilities/regex_demos/subexpression_demo1.cpp)
+- [demo2: check phonenumber](./specialized_library_facilities/regex_demos/check_phone_number.cpp)
+
 ## Part IV: Advanced Topics
