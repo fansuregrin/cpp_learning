@@ -343,4 +343,14 @@ examples:
 - [demo1](./specialized_library_facilities/regex_demos/subexpression_demo1.cpp)
 - [demo2: check phonenumber](./specialized_library_facilities/regex_demos/check_phone_number.cpp)
 
+##### 17.3.4. Using regex_replace
+- Replacing Only Part of the Input Sequence
+- Flags to Control Matches and Formatting
+- Using Format Flags
+
+examples:
+- [demo1](./specialized_library_facilities/regex_demos/regex_replace_demo1.cpp)
+- [demo2: reformat phonenumbers](./specialized_library_facilities/regex_demos/reformat_phonenumber.cpp)
+- [demo3: reformat phonenumbers (with specifical `match_flag_type`)](./specialized_library_facilities/regex_demos/reformat_phonenumber2.cpp)
+
 ## Part IV: Advanced Topics
