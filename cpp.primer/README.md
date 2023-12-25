@@ -353,4 +353,8 @@ examples:
 - [demo2: reformat phonenumbers](./specialized_library_facilities/regex_demos/reformat_phonenumber.cpp)
 - [demo3: reformat phonenumbers (with specifical `match_flag_type`)](./specialized_library_facilities/regex_demos/reformat_phonenumber2.cpp)
 
+#### 17.4. Random Numbers
+> Programs often need a source of random numbers. Prior to the new standard, both C and C++ relied on a simple C library function named `rand`. That function produces pseudorandom integers that are uniformly distributed in the range from 0 to a system-dependent maximum value that is at least 32767.
+> However, the `rand` function has several problems. The random-number library, defined in the `random` header, solves these problems through a set of cooperating classes: **random-number engines** and **random-number distribution classes**.  An engine generates a sequence of unsigned random numbers. A distribution uses an engine to generate random numbers of a specified type, in a given range, distributed according to a particular probability distribution.
+
 ## Part IV: Advanced Topics
