@@ -326,4 +326,12 @@ examples:
 - [demo3: catching errors](./specialized_library_facilities/regex_demos/regex_demo3.cpp)
 - [demo4](./specialized_library_facilities/regex_demos/regex_demo4.cpp)
 
+##### 17.3.2. The Match and Regex Iterator Types
+- Using an `sregex_iterator`
+- Using the Match Data
+
+examples:
+- [demo1](./specialized_library_facilities/regex_demos/regex_iter_demo1.cpp)
+- [demo2](./specialized_library_facilities/regex_demos/regex_iter_demo2.cpp)
+
 ## Part IV: Advanced Topics
