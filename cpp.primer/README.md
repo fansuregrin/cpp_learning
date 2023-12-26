@@ -303,14 +303,14 @@ examples:
 ### Chapter 17. Specialized Library Facilities
 #### 17.1. The tuple Type
 examples:
-- [demo1](./specialized_library_facilities/tuple_demo1.cpp)
-- [demo2](./specialized_library_facilities/tuple_demo2/)
+- [demo1](./specialized_library_facilities/tuple_demos/tuple_demo1.cpp)
+- [demo2](./specialized_library_facilities/tuple_demos/tuple_demo2/)
 ##### 17.1.1. Defining and Initializing `tuple`s
 ##### 17.1.2. Using a `tuple` to Return Multiple Values
 
 #### 17.2. The `bitset` Type
 examples:
-- [demo1](./specialized_library_facilities/bitset_demo1.cpp)
+- [demo1](./specialized_library_facilities/bitset_demos/bitset_demo1.cpp)
 ##### 17.2.1. Defining and Initializing `bitset`s
 ##### 17.2.2. Operations on `bitset`s
 
