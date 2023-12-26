@@ -379,4 +379,20 @@ examples:
 - [demo2: normal distribution](./specialized_library_facilities/random_number/normal_distribution.cpp)
 - [demo3: bernoulli distribution](./specialized_library_facilities/random_number/bernoulli_distribution_demo2.cpp)
 
+#### 17.5. The IO Library Revisited
+##### 17.5.1. Formatted Input and Output
+- Many Manipulators Change the Format State
+- Controlling the Format of Boolean Values
+- Specifying the Base for Integral Values
+- Indicating Base on the Output
+- Controlling the Format of Floating-Point Values
+- Specifying How Much Precision to Print
+- Specifying the Notation of Floating-Point Numbers
+- Printing the Decimal Point
+- Controlling Input Formatting
+
+examples:
+- [demo1: format ostream](./specialized_library_facilities/io_lib/formated_ostream_demo.cpp)
+- [demo2: format istream](./specialized_library_facilities/io_lib/formated_istream_demo.cpp)
+
 ## Part IV: Advanced Topics
