@@ -357,4 +357,15 @@ examples:
 > Programs often need a source of random numbers. Prior to the new standard, both C and C++ relied on a simple C library function named `rand`. That function produces pseudorandom integers that are uniformly distributed in the range from 0 to a system-dependent maximum value that is at least 32767.
 > However, the `rand` function has several problems. The random-number library, defined in the `random` header, solves these problems through a set of cooperating classes: **random-number engines** and **random-number distribution classes**.  An engine generates a sequence of unsigned random numbers. A distribution uses an engine to generate random numbers of a specified type, in a given range, distributed according to a particular probability distribution.
 
+##### 17.4.1. Random-Number Engines and Distribution
+- Distribution Types and Engines
+- Comparing Random Engines and the rand Function
+- Engines Generate a Sequence of Numbers
+- Seeding a Generator
+
+examples:
+- [demo1: random engine (generator)](./specialized_library_facilities/random_number/rand_number_demo1.cpp)
+- [demo2: distribution types adn engines](./specialized_library_facilities/random_number/rand_number_demo2.cpp)
+- [demo3: seeding a generator](./specialized_library_facilities/random_number/rand_number_demo3.cpp)
+
 ## Part IV: Advanced Topics
