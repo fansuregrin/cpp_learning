@@ -368,4 +368,15 @@ examples:
 - [demo2: distribution types adn engines](./specialized_library_facilities/random_number/rand_number_demo2.cpp)
 - [demo3: seeding a generator](./specialized_library_facilities/random_number/rand_number_demo3.cpp)
 
+##### 17.4.2. Other Kinds of Distributions
+- Generating Random Real Numbers
+- Using the Distribution’s Default Result Type
+- Generating Numbers That Are Not Uniformly Distributed
+- The `bernoulli_distribution` Class
+
+examples:
+- [demo1: uniform distributions](./specialized_library_facilities/random_number/uniform_distribution.cpp)
+- [demo2: normal distribution](./specialized_library_facilities/random_number/normal_distribution.cpp)
+- [demo3: bernoulli distribution](./specialized_library_facilities/random_number/bernoulli_distribution_demo2.cpp)
+
 ## Part IV: Advanced Topics
