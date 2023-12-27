@@ -395,4 +395,19 @@ examples:
 - [demo1: format ostream](./specialized_library_facilities/io_lib/formated_ostream_demo.cpp)
 - [demo2: format istream](./specialized_library_facilities/io_lib/formated_istream_demo.cpp)
 
+##### 17.5.2. Unformatted Input/Output Operations
+> So far, our programs have used only formatted IO operations. The input and output operators (`<<` and `>>`) format the data they read or write according to the type being handled. The library also provides a set of low-level operations that support unformatted IO. These operations let us deal with a stream as **a sequence of uninterpreted bytes**.
+- Single-Byte Operations
+- Putting Back onto an Input Stream
+- `int` Return Values from Input Operations
+- Multi-Byte Operations
+- Determining How Many Characters Were Read
+
+examples:
+- [demo1: `get`](./specialized_library_facilities/io_lib/get_demo.cpp)
+- [demo2: `put`](./specialized_library_facilities/io_lib/put_demo.cpp)
+- [demo3: `peek`](./specialized_library_facilities/io_lib/peek_demo.cpp)
+- [demo4: `unget`](./specialized_library_facilities/io_lib/unget_demo.cpp)
+- [demo5: `putback`](./specialized_library_facilities/io_lib/putback_demo.cpp)
+
 ## Part IV: Advanced Topics
