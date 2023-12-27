@@ -421,3 +421,32 @@ examples:
 
 examples:
 - [demo1](./specialized_library_facilities/io_lib/random_access_demo1.cpp)
+
+### Chapter 18. Tools for Large Programs
+#### 18.1. Exception Handling
+> **Exception handling** allows independently developed parts of a program to communicate about and handle problems that arise at run time. Exceptions let us separate problem detection from problem resolution. One part of the program can detect a problem and can pass the job of resolving that problem to another part of the program. The detecting part need not know anything about the handling part, and vice versa.
+
+##### 18.1.1. Throwing an Exception
+- Stack Unwinding
+- Objects Are Automatically Destroyed during Stack Unwinding
+- Destructors and Exceptions
+- The Exception Object
+
+##### 18.1.2. Catching an Exception
+- Finding a Matching Handler
+- Rethrow
+- The Catch-All Handler
+
+##### 18.1.3. Function `try` Blocks and Constructors
+
+##### 18.1.4. The `noexcept` Exception Specification
+- Violating the Exception Specification
+- Arguments to the noexcept Specification
+- Exception Specifications and Pointers, Virtuals, and Copy Control
+
+ examples:
+ - [demo1](./tools_for_large_programs/exception_handling/noexcept_demo1.cpp)
+
+##### 18.1.5. Exception Class Hierarchies
+- Exception Classes for a Bookstore Application
+- Using Our Own Exception Types
