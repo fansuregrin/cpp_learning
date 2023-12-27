@@ -410,4 +410,14 @@ examples:
 - [demo4: `unget`](./specialized_library_facilities/io_lib/unget_demo.cpp)
 - [demo5: `putback`](./specialized_library_facilities/io_lib/putback_demo.cpp)
 
+##### 17.5.3. Random Access to a Stream
+- Seek and Tell Functions
+- There Is Only One Marker
+- Repositioning the Marker
+- Accessing the Marker
+- Reading and Writing to the Same File
+
+examples:
+- [demo1](./specialized_library_facilities/io_lib/random_access_demo1.cpp)
+
 ## Part IV: Advanced Topics
