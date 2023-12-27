@@ -300,6 +300,8 @@ examples:
 - [class template partial specialization](./template_and_generic_programming/class_template_specialization_demo/partial_specialization_demo.cpp)
 - [specializing members of the class template](./template_and_generic_programming/class_template_specialization_demo/specializing_the_member_demo.cpp)
 
+## Part IV: Advanced Topics
+
 ### Chapter 17. Specialized Library Facilities
 #### 17.1. The tuple Type
 examples:
@@ -419,5 +421,3 @@ examples:
 
 examples:
 - [demo1](./specialized_library_facilities/io_lib/random_access_demo1.cpp)
-
-## Part IV: Advanced Topics
