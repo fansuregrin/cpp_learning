@@ -486,3 +486,14 @@ examples:
 - [demo1: namespace aliases](./tools_for_large_programs/namespace/namespace_aliases/)
 - [demo2: `using` declarations](./tools_for_large_programs/namespace/using_declarations/)
 - [demo3: `using` directives](./tools_for_large_programs/namespace/using_directives/)
+
+##### 18.2.3. Classes, Namespaces, and Scope
+- Argument-Dependent Lookup and Parameters of Class Type
+- Lookup and `std::move` and `std::forward`
+- Friend Declarations and Argument-Dependent Lookup
+
+examples:
+- [demo1: name lookup for names used inside a namespace](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo1.cpp)
+- [demo2: name lookup, classes and namespaces](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo2.cpp)
+- [demo3: argument-dependent lookup and paramaters of class type](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo3.cpp)
+- [demo4: friend declarations and argument-dependent lookup](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo4.cpp)
