@@ -453,3 +453,20 @@ examples:
 
 examples:
 - [demo1: defining custom exception types for `SalesData`](./tools_for_large_programs/exception_handling/custom_exception_demo/)
+
+#### 18.2. Namespaces
+> Namespaces provide a much more controlled mechanism for preventing name collisions. Namespaces partition the global namespace. A namespace is a scope. By defining a library’s names inside a namespace, library authors (and users) can avoid the limitations inherent in global names.
+
+##### 18.2.1. Namespace Definitions
+- Each Namespace Is a Scope
+- Namespaces Can Be Discontiguous
+- Defining the Primer Namespace
+- Defining Namespace Members
+- Template Specializations
+- The Global Namespace
+- Nested Namespaces
+- Inline Namespaces 
+- Unnamed Namespaces
+
+examples:
+- [demo1](./tools_for_large_programs/namespace/sales_data/)
