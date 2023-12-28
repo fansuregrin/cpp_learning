@@ -3,7 +3,6 @@
 #include <string>
 #include <iostream>
 
-using namespace std;
 
 // `Args` is a template parameter pack; rest is a function parameter pack.
 // `Args` represents zero or more template type parameters.
@@ -18,13 +17,13 @@ void g(Args ... args) {
     // The `sizeof...` Operator
     // When we need to know how many elements there are in a pack, we can use the
     // `sizeof...` operator.
-    cout << "number of type params: " << sizeof...(Args) << endl;  // number of template type parameters
-    cout << "number of function params: " << sizeof...(args) << endl;  // number of function parameters
+    std::cout << "number of type params: " << sizeof...(Args) << std::endl;  // number of template type parameters
+    std::cout << "number of function params: " << sizeof...(args) << std::endl;  // number of function parameters
 }
 
 
 int main() {
-    int i = 0; double d = 3.14; string s = "how now brown cow";
+    int i = 0; double d = 3.14; std::string s = "how now brown cow";
     foo(i, s, 42, d); // three parameters in the pack
     foo(s, 42, "hi"); // two parameters in the pack
     foo(d, s); // one parameter in the pack

@@ -4,29 +4,28 @@
 #include <string>
 #include <stdexcept>
 
-using namespace std;
 
 int main() {
     Blob<int> nums = {1, 2, 2, 4, 5};
     BlobPtr<int> p1(nums);
 
-    string sep;
+    std::string sep;
     for (Blob<int>::size_type i=0; i<nums.size(); ++i) {
-        cout << sep << *p1++;
+        std::cout << sep << *p1++;
         sep = ", ";
     }
-    cout << endl;
+    std::cout << std::endl;
 
     try {
         *p1;
-    } catch (const exception& e) {
-        cout << e.what() << endl;
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     try {
         *p1++;
-    } catch (const exception& e) {
-        cout << e.what() << endl;
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
     
     {
@@ -36,8 +35,8 @@ int main() {
 
     try {
         *p1;
-    } catch (const exception& e) {
-        cout << e.what() << endl;
+    } catch (const std::exception& e) {
+        std::cout << e.what() << std::endl;
     }
 
     return 0;

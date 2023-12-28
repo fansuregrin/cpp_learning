@@ -4,7 +4,6 @@
 #include <type_traits>
 #include <utility>
 
-using namespace std;
 
 // The definiton of `std::move` may like this:
 //
@@ -16,9 +15,9 @@ using namespace std;
 // }
 
 int main() {
-    string s1("hi!"), s2;
+    std::string s1("hi!"), s2;
 
-    s2 = move(string("bye!"));  // ok: moving from an rvalue
+    s2 = std::move(std::string("bye!"));  // ok: moving from an rvalue
     /* 1) the argument to `move` is the rvalue result of the `string` constructor, `string("bye")`.
         - The deduced type of `T` is `string`.
         - Therefore, `remove_reference` is instantiated with `string`.
@@ -28,7 +27,7 @@ int main() {
       this call instantiates move<string>, which is the function `string&& move(string &&t)`
     */
 
-    s2 = move(s1);  // ok: but after the assigment s1 has indeterminate value
+    s2 = std::move(s1);  // ok: but after the assigment s1 has indeterminate value
     /* 2) the argument to `move` is an lvalue.
         - The deduced type of `T` is `string&` (reference to `string`, not plain `string`).
         - Therefore, `remove_reference` is instantiated with `string&`.

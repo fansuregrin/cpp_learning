@@ -6,20 +6,19 @@
 #include <sstream>
 #include <iostream>
 
-using namespace std;
 
 // print any type we don't otherwise handle
 template <typename T>
-string debug_rep(const T &t) {
-    ostringstream ret;
+std::string debug_rep(const T &t) {
+    std::ostringstream ret;
     ret << t; // uses T's output operator to print a representation of t
     return ret.str(); // return a copy of the string to which ret is bound
 }
 
 // print pointers as their pointer value, followed by the object to which the pointer points
 template <typename T>
-string debug_rep(T *p) {
-    ostringstream ret;
+std::string debug_rep(T *p) {
+    std::ostringstream ret;
     ret << "pointer: " << p;  // print the pointer's own value
     if (p) {
         ret << " " << debug_rep(*p);  // print the value to which p points
@@ -29,13 +28,13 @@ string debug_rep(T *p) {
     return ret.str();  // return a copy of the string to which ret is bound
 }
 
-string debug_rep(const string& s) {
+std::string debug_rep(const std::string& s) {
     return '"' + s + '"';
 }
 
 
 int main() {
-    string s = "hi";
+    std::string s = "hi";
 
     // Note:
     // When a nontemplate function provides an equally good match for a call as a
@@ -46,7 +45,7 @@ int main() {
     //   2）debug_rep(const string&)
     // a nontemplate function is preferred over equally good match(es) to a function template
     // This calls `string debug_rep(const string&)`.
-    cout << debug_rep(s) << endl;
+    std::cout << debug_rep(s) << std::endl;
 
     // There are three viable funcitons:
     //   1) `debug_rep(const T&)`, with T bound to char[10]
@@ -60,7 +59,7 @@ int main() {
     // call. As before, the T* version is more specialized and is the one that will be selected.
     //
     // This will call `debug_rep<const char>(const char *)`
-    cout << debug_rep("hi world!") << endl;
+    std::cout << debug_rep("hi world!") << std::endl;
     // However, this function donot handle character pointers as strings as we wanted. 
     // We can define two more nontemplate overloads specifically for character pointers.
     // Please see "overloading and template demo3".

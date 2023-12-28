@@ -2,11 +2,10 @@
 
 #include <cstring>
 
-using namespace std;
 
 template <size_t N, size_t M>
 int compare(const char (&a)[N], const char (&b)[M]) {
-    return strcmp(a, b);
+    return std::strcmp(a, b);
 }
 
 template <typename T>

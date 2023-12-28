@@ -3,7 +3,6 @@
 #include <iostream>
 #include <cstring>
 
-using namespace std;
 
 class Square {
 public:
@@ -33,7 +32,7 @@ private:
     double len;
 };
 
-ostream& operator<<(ostream& os, const Square& sq) {
+std::ostream& operator<<(std::ostream& os, const Square& sq) {
     return os << "Square(" << sq.get_len() << ")";
 }
 
@@ -69,19 +68,19 @@ int compare(const char (&p1)[N], const char (&p2)[M]) {
 
 int main() {
     // call `int get_min<int>(int a, int b)`
-    cout << "minima of " << 3 << " and " << 4 << ": " << get_min(3, 4) << endl;
+    std::cout << "minima of " << 3 << " and " << 4 << ": " << get_min(3, 4) << std::endl;
     // call `double get_min<double>(double a, double b)`
-    cout << "minima of " << 1.2 << " and " << 3.8 << ": " << get_min(1.2, 3.8) << endl;
+    std::cout << "minima of " << 1.2 << " and " << 3.8 << ": " << get_min(1.2, 3.8) << std::endl;
 
     Square sq1(1.2), sq2(1.5);
     // call `Square get_min<Square>(Square a, Square b)`
-    cout << "minima of " << sq1 << " and " << sq2 << ": " << get_min(sq1, sq2) << endl;
+    std::cout << "minima of " << sq1 << " and " << sq2 << ": " << get_min(sq1, sq2) << std::endl;
 
-    cout << "minima of " << sq1 << " and " << sq2 << ": " << get_max(sq1, sq2) << endl;
+    std::cout << "minima of " << sq1 << " and " << sq2 << ": " << get_max(sq1, sq2) << std::endl;
 
     int arr[5] = {1, 2, 3, 4, 5};
     int * it = find(arr, arr+5, 3);
-    if (it != arr+5) cout << "found \"" << *it << "\"!" << endl;
+    if (it != arr+5) std::cout << "found \"" << *it << "\"!" << std::endl;
 
     compare("monkey", "cat");
 

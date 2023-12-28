@@ -2,12 +2,11 @@
 #include <iostream>
 #include <string>
 
-using namespace std;
 
 template <typename T>
-ostream& operator<<(ostream& os, const Blob<T>& b) {
+std::ostream& operator<<(std::ostream& os, const Blob<T>& b) {
     os << "[";
-    string sep;
+    std::string sep;
     for (auto it=b.begin(); it!=b.end(); ++it) {
         os << sep << *it;
         sep = ", ";
@@ -21,13 +20,13 @@ int main() {
     for (size_type i=0; i!=squares.size(); ++i) {
         squares[i] = i*i;
     }
-    cout << "squares: " << squares << endl;
+    std::cout << "squares: " << squares << std::endl;
 
-    Blob<string> grp1 = {"apple", "banana"};
-    Blob<string> grp2 = {"apple", "banana"};
-    cout << "grp1: " << grp1 << "\n" << "grp2: " << grp2 << endl;
+    Blob<std::string> grp1 = {"apple", "banana"};
+    Blob<std::string> grp2 = {"apple", "banana"};
+    std::cout << "grp1: " << grp1 << "\n" << "grp2: " << grp2 << std::endl;
 
-    cout << (grp1 == grp2 ? "grp1 == grp2" : "grp1 != grp2") << endl;
+    std::cout << (grp1 == grp2 ? "grp1 == grp2" : "grp1 != grp2") << std::endl;
 
     return 0;
 }

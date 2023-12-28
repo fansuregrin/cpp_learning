@@ -10,7 +10,6 @@
 
 #include <string>
 
-using namespace std;
 
 template<typename T> void f_obj(T a, T b) { }
 template<typename T> void f_ref(const T& a, const T& b) { }
@@ -34,8 +33,8 @@ template<typename T> T add(const T& a, const int& b) {
 }
 
 int main() {
-    string s1("a value");
-    const string s2("another value");
+    std::string s1("a value");
+    const std::string s2("another value");
 
     f_obj(s1, s2);  // calls f_obj(string, string); const is ignored
     f_ref(s1, s2);  // calls f_ref(const string&, const string&)

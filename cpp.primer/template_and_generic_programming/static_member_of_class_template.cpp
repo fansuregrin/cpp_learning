@@ -24,8 +24,8 @@ int main() {
     fi.increase_cnt();  // instantiates Foo<int>::increase_cnt
     ct = fi.count();  // uses Foo<int>::count
 
-    cout << "Foo<double>::ctr = " << fi.count() << endl;
-    cout << "Foo<int>::ctr = " << fd.count() << endl;
+    std::cout << "Foo<double>::ctr = " << fi.count() << std::endl;
+    std::cout << "Foo<int>::ctr = " << fd.count() << std::endl;
 
     Foo<int> fi2, fi3;
 
@@ -33,9 +33,9 @@ int main() {
     // and Foo<int>::count members
 
     fi3.increase_cnt();
-    cout << "Foo<int>::ctr = " << fi.count() << endl;
-    cout << "Foo<int>::ctr = " << fi2.count() << endl;
-    cout << "Foo<int>::ctr = " << fi3.count() << endl;
+    std::cout << "Foo<int>::ctr = " << fi.count() << std::endl;
+    std::cout << "Foo<int>::ctr = " << fi2.count() << std::endl;
+    std::cout << "Foo<int>::ctr = " << fi3.count() << std::endl;
 
     return 0;
 }

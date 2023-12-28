@@ -6,7 +6,6 @@
 
 #include <iostream>
 
-using namespace std;
 
 template <typename T>
 T fcn(T val) {
@@ -21,9 +20,9 @@ void f3(T && val) {
     T t = val;  // copy or binding a reference?
     t = fcn(t); // does the assignment change only t or val and t?
     if (t == val) {  // always true if T is a reference type
-        cout << "t == val" << endl;
+        std::cout << "t == val" << std::endl;
     } else {
-        cout << "t != val" << endl;
+        std::cout << "t != val" << std::endl;
     }
 }
 

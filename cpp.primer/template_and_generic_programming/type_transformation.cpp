@@ -5,11 +5,10 @@
 // use The Type Transformation Library Template Classes
 #include <type_traits>
 
-using namespace std;
 
 template<typename It>
 auto fcn(It beg, It end)
--> typename remove_reference<decltype(*beg)>::type {
+-> typename std::remove_reference<decltype(*beg)>::type {
     for (It i=beg; i!=end; ++i) {
         ++*i;
     }
@@ -17,7 +16,7 @@ auto fcn(It beg, It end)
 }
 
 int main() {
-    vector<int> vec{1, 2, 3};
+    std::vector<int> vec{1, 2, 3};
     // fcn(vector<int>::iterator beg, vector<int>::iterator end)->int
     fcn(vec.begin(), vec.end());
 }

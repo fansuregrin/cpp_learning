@@ -5,24 +5,23 @@
 #include <iostream>
 #include <functional>
 
-using namespace std;
 
 class SalesData {
     friend struct std::hash<SalesData>;
     friend SalesData add(const SalesData&, const SalesData&);
-    friend ostream& print(ostream&, const SalesData&);
-    friend istream& read(istream&, SalesData&);
+    friend std::ostream& print(std::ostream&, const SalesData&);
+    friend std::istream& read(std::istream&, SalesData&);
 public:
     SalesData() = default;
 
-    SalesData(const string &s): bookNo(s) {}
+    SalesData(const std::string &s): bookNo(s) {}
 
-    SalesData(const string &s, unsigned n, double p):
+    SalesData(const std::string &s, unsigned n, double p):
         bookNo(s), units_sold(n), revenue(n*p) {}
 
-    SalesData(istream &);
+    SalesData(std::istream &);
 
-    string isbn() const { return bookNo; }
+    std::string isbn() const { return bookNo; }
 
     SalesData& combine(const SalesData&);
 
@@ -32,12 +31,12 @@ public:
 private:
     double avg_price() const;
 
-    string bookNo;
+    std::string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
 };
 
-SalesData::SalesData(istream &is) {
+SalesData::SalesData(std::istream &is) {
     read(is, *this);
 }
 
@@ -53,18 +52,18 @@ double SalesData::avg_price() const {
 
 SalesData add(const SalesData&, const SalesData&);
 
-ostream& print(ostream&, const SalesData&);
+std::ostream& print(std::ostream&, const SalesData&);
 
-istream& read(istream&, SalesData&);
+std::istream& read(std::istream&, SalesData&);
 
-istream& read(istream &is, SalesData &item) {
+std::istream& read(std::istream &is, SalesData &item) {
     double price = 0.0;
     is >> item.bookNo >> item.units_sold >> price;
     item.revenue = item.units_sold * price;
     return is;
 }
 
-ostream& print(ostream &os, const SalesData &item) {
+std::ostream& print(std::ostream &os, const SalesData &item) {
     os << item.isbn() << " " << item.units_sold << " "
        << item.revenue << " " << item.avg_price();
     return os;

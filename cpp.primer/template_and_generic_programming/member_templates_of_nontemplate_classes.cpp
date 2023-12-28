@@ -4,7 +4,6 @@
 #include <memory>
 #include <string>
 
-using namespace std;
 
 // function-object class that calls delete on a given pointer
 class DebugDelete {
@@ -32,10 +31,10 @@ int main() {
 
     // destroying the the object to which p points
     // instantiates DebugDelete::operator()<int>(int *)
-    unique_ptr<int, DebugDelete> p(new int, DebugDelete());
+    std::unique_ptr<int, DebugDelete> p(new int, DebugDelete());
     // destroying the the object to which sp points
     // instantiates DebugDelete::operator()<string>(string*)
-    unique_ptr<string, DebugDelete> sp(new string, DebugDelete());
+    std::unique_ptr<std::string, DebugDelete> sp(new std::string, DebugDelete());
 
     return 0;
 }

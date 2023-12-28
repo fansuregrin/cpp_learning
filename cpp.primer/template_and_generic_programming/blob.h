@@ -6,7 +6,6 @@
 #include <initializer_list>
 #include <stdexcept>
 
-using namespace std;
 
 // forward declarations needed for friend declarations in Blob
 template <typename T> class BlobPtr;
@@ -24,14 +23,14 @@ class Blob {
     friend bool operator==<T>(const Blob<T> &, const Blob<T> &);
 public:
     typedef T value_type;
-    typedef typename vector<T>::size_type size_type;
-    typedef typename vector<T>::iterator iterator;
-    typedef typename vector<T>::const_iterator const_iterator;
+    typedef typename std::vector<T>::size_type size_type;
+    typedef typename std::vector<T>::iterator iterator;
+    typedef typename std::vector<T>::const_iterator const_iterator;
 
-    Blob(): data(make_shared<vector<T>>()) {}
+    Blob(): data(std::make_shared<std::vector<T>>()) {}
 
-    Blob(initializer_list<T> il):
-    data(make_shared<vector<T>>(il)) {}
+    Blob(std::initializer_list<T> il):
+    data(std::make_shared<std::vector<T>>(il)) {}
 
     template <typename It> Blob(It b, It e);
 
@@ -43,7 +42,7 @@ public:
         return data->empty();
     }
 
-    void push_back(const string & t) {
+    void push_back(const std::string & t) {
         data->push_back(t);
     }
 
@@ -79,18 +78,18 @@ public:
     iterator end() { return data->end(); }
     const_iterator end() const { return data->end(); }
 private:
-    shared_ptr<vector<T>> data;
+    std::shared_ptr<std::vector<T>> data;
 
-    void check(size_type i, const string& msg) const {
+    void check(size_type i, const std::string& msg) const {
         if (i >= data->size()) {
-            throw out_of_range(msg);
+            throw std::out_of_range(msg);
         }
     }
 };
 
 template <typename T>    // type parameter list for the class
 template <typename It>   // type parameter list for the constructor
-Blob<T>::Blob(It b, It e): data(make_shared<vector<T>>(b, e)) {}
+Blob<T>::Blob(It b, It e): data(std::make_shared<std::vector<T>>(b, e)) {}
 
 template <typename T>
 T& Blob<T>::operator[](Blob<T>::size_type i) {

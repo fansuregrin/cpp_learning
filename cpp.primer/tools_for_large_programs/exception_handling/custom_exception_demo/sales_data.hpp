@@ -5,23 +5,22 @@
 #include <iostream>
 #include "custom_exception.hpp"
 
-using namespace std;
 
 class SalesData {
-    friend ostream& operator<<(ostream&, const SalesData&);
-    friend istream& operator>>(istream&, SalesData&);
+    friend std::ostream& operator<<(std::ostream&, const SalesData&);
+    friend std::istream& operator>>(std::istream&, SalesData&);
     friend SalesData operator+(const SalesData&, const SalesData&);
 public:
     SalesData() = default;
 
-    SalesData(const string &s): bookNo(s) {}
+    SalesData(const std::string &s): bookNo(s) {}
 
-    SalesData(const string &s, unsigned n, double p):
+    SalesData(const std::string &s, unsigned n, double p):
         bookNo(s), units_sold(n), revenue(n*p) {}
 
-    SalesData(istream &);
+    SalesData(std::istream &);
 
-    string isbn() const { return bookNo; }
+    std::string isbn() const { return bookNo; }
 
     SalesData& operator+=(const SalesData&);
 
@@ -31,12 +30,12 @@ public:
 private:
     double avg_price() const;
 
-    string bookNo;
+    std::string bookNo;
     unsigned units_sold = 0;
     double revenue = 0.0;
 };
 
-SalesData::SalesData(istream &is) {
+SalesData::SalesData(std::istream &is) {
     is >> *this;
 }
 
@@ -53,7 +52,7 @@ double SalesData::avg_price() const {
     return units_sold ? (revenue/units_sold) : 0.0;
 }
 
-istream& operator>>(istream &is, SalesData &item) {
+std::istream& operator>>(std::istream &is, SalesData &item) {
     double price = 0.0;
     is >> item.bookNo >> item.units_sold >> price;
     if (is) {
@@ -64,7 +63,7 @@ istream& operator>>(istream &is, SalesData &item) {
     return is;
 }
 
-ostream& operator<<(ostream &os, const SalesData &item) {
+std::ostream& operator<<(std::ostream &os, const SalesData &item) {
     os << item.isbn() << " " << item.units_sold << " "
        << item.revenue << " " << item.avg_price();
     return os;

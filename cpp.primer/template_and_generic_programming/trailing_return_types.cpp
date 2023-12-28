@@ -2,7 +2,6 @@
 
 #include <vector>
 
-using namespace std;
 
 // a trailing return lets us declare the return type after the parameter list is seen
 
@@ -15,6 +14,6 @@ auto fcn(It beg, It end) -> decltype(*beg) {
 }
 
 int main() {
-    vector<int> vec{1, 2, 3};
+    std::vector<int> vec{1, 2, 3};
     fcn(vec.begin(), vec.end());
 }
