@@ -450,3 +450,6 @@ examples:
 ##### 18.1.5. Exception Class Hierarchies
 - Exception Classes for a Bookstore Application
 - Using Our Own Exception Types
+
+examples:
+- [demo1: defining custom exception types for `SalesData`](./tools_for_large_programs/exception_handling/custom_exception_demo/)
