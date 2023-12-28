@@ -497,3 +497,15 @@ examples:
 - [demo2: name lookup, classes and namespaces](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo2.cpp)
 - [demo3: argument-dependent lookup and paramaters of class type](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo3.cpp)
 - [demo4: friend declarations and argument-dependent lookup](./tools_for_large_programs/namespace/classes_namespace_and_scope/demo4.cpp)
+
+##### 18.2.4. Overloading and Namespaces
+- Argument-Dependent Lookup and Overloading
+- Overloading and `using` Declarations
+- Overloading and `using` Directives
+- Overloading across Multiple `using` Directives
+
+examples:
+- [demo1: argument-dependent lookup and overloading](./tools_for_large_programs/namespace/overloading_and_namespaces/demo1.cpp)
+- [demo2: overloading and `using` declarations](./tools_for_large_programs/namespace/overloading_and_namespaces/demo2.cpp)
+- [demo3: overloading and `using` directives](./tools_for_large_programs/namespace/overloading_and_namespaces/demo3.cpp)
+- [demo4: overloading across multiple `using` directives](./tools_for_large_programs/namespace/overloading_and_namespaces/demo4.cpp)
