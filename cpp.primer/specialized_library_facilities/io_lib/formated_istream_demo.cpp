@@ -4,21 +4,20 @@
 #include <iomanip>
 #include <sstream>
 
-using namespace std;
 
 int main() {
     char ch;
 
-    istringstream is1("a b c\nd");
+    std::istringstream is1("a b c\nd");
     while (is1 >> ch) {
-        cout << ch;
+        std::cout << ch;
     }
-    cout << endl;
+    std::cout << std::endl;
 
-    istringstream is2("a b c\nd");
-    is2 >> noskipws;
+    std::istringstream is2("a b c\nd");
+    is2 >> std::noskipws;
     while (is2 >> ch) {
-        cout << ch;
+        std::cout << ch;
     }
-    cout << endl << skipws;
+    std::cout << std::endl << std::skipws;
 }
