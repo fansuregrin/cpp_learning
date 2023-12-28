@@ -470,3 +470,19 @@ examples:
 
 examples:
 - [demo1](./tools_for_large_programs/namespace/sales_data/)
+
+##### 18.2.2. Using Namespace Members
+- Namespace Aliases
+- `using` Declarations: A Recap
+- `using` Directives
+- `using` Directives and Scopes
+- `using` Directives Example
+- Headers and `using` Declarations or Directives
+
+> Caution: Avoid `using` Directives
+> Tip: One place where using directives are useful is in the implementation files of the namespace itself.
+
+examples:
+- [demo1: namespace aliases](./tools_for_large_programs/namespace/namespace_aliases/)
+- [demo2: `using` declarations](./tools_for_large_programs/namespace/using_declarations/)
+- [demo3: `using` directives](./tools_for_large_programs/namespace/using_directives/)
