@@ -521,3 +521,8 @@ examples:
 
 examples:
 - [demo1: ZooAnimal](./tools_for_large_programs/multiple_and_virtual_inheritance/animal/)
+
+##### 18.3.2. Conversions and Multiple Base Classes
+- Lookup Based on Type of Pointer or Reference
+examples:
+- [demo1](./tools_for_large_programs/multiple_and_virtual_inheritance/conversions_and_multiple_base_calsses_demo1.cpp)

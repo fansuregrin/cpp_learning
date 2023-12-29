@@ -4,6 +4,7 @@
 #include <string>
 #include <iostream>
 #include <iomanip>
+#include <sstream>
 
 class ZooAnimal {
 public:
@@ -19,7 +20,11 @@ public:
     ~ZooAnimal() {
         std::cout << "calling ~ZooAnimal() to destroy a ZooAnimal..." << std::endl;
     }
-private:
+
+    virtual std::string str() const = 0;
+
+    virtual std::string intro() const = 0;
+protected:
     bool onExhibit;
 };
 
@@ -38,7 +43,21 @@ public:
     ~Bear() {
         std::cout << "calling Bear() to destroy a Bear..." << std::endl;
     }
-private:
+
+    std::string str() const {
+        std::ostringstream s;
+        s << "<Bear: \"" << name << "\", onExhibit=" << std::boolalpha 
+          << onExhibit << std::noboolalpha << ">";
+        return s.str();
+    }
+
+    std::string intro() const {
+        std::ostringstream s;
+        s << "Hi! I am " << name << "! I am " << (onExhibit?"":"not ")
+          << "being exhibited.";
+        return s.str();
+    }
+protected:
     std::string name;
 };
 
@@ -67,7 +86,26 @@ public:
     ~Endangered() {
         std::cout << "calling ~Endangered() to destroy an Endangered..." << std::endl;
     }
-private:
+
+    virtual std::string str() const {
+        std::string ret;
+        switch (level) {
+            case concerned: {
+                ret = "concerned";
+                break;
+            }
+            case vulnerable: {
+                ret = "vulnerable";
+                break;
+            }
+            case critical: {
+                ret = "critical";
+                break;
+            }
+        }
+        return ret;
+    }
+protected:
     elt level;
 };
 
@@ -85,6 +123,24 @@ public:
 
     ~Panda() {
         std::cout << "calling ~Panda() to construct a Panda..." << std::endl;
+    }
+
+    std::string str() const {
+        std::ostringstream s;
+        s << "<Panda: \"" << name << "\", onExhibit=" << std::boolalpha 
+          << onExhibit << std::noboolalpha << ", endangered_level=\""
+          << Endangered::str() << "\">";
+        return s.str();
+    }
+
+    std::string intro() const {
+        std::ostringstream s;
+        s << Bear::intro() << " I am a panda from China and I like eating bamboo!";
+        return s.str();
+    }
+
+    virtual void cuddle() {
+
     }
 };
 
