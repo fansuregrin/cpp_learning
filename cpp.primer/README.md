@@ -526,3 +526,7 @@ examples:
 - Lookup Based on Type of Pointer or Reference
 examples:
 - [demo1](./tools_for_large_programs/multiple_and_virtual_inheritance/conversions_and_multiple_base_calsses_demo1.cpp)
+
+##### 18.3.3. Class Scope under Multiple Inheritance
+> Under multiple inheritance, this same lookup happens simultaneously among all the direct base classes. If a name is found through more than one base class, then use of that name is ambiguous.
+
