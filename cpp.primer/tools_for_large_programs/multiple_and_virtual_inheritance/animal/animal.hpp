@@ -41,7 +41,7 @@ public:
     }
 
     ~Bear() {
-        std::cout << "calling Bear() to destroy a Bear..." << std::endl;
+        std::cout << "calling ~Bear() to destroy a Bear..." << std::endl;
     }
 
     std::string str() const {
