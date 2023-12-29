@@ -509,3 +509,15 @@ examples:
 - [demo2: overloading and `using` declarations](./tools_for_large_programs/namespace/overloading_and_namespaces/demo2.cpp)
 - [demo3: overloading and `using` directives](./tools_for_large_programs/namespace/overloading_and_namespaces/demo3.cpp)
 - [demo4: overloading across multiple `using` directives](./tools_for_large_programs/namespace/overloading_and_namespaces/demo4.cpp)
+
+#### 18.3. Multiple and Virtual Inheritance
+##### 18.3.1. Multiple Inheritance
+> The derivation list in a derived class can contain more than one base class and each base class has an optional access specifier. As with single inheritance, the derivation list may include only classes that have been defined and that were not defined as `final`. There is no language-imposed limit on the number of base classes from which a class can be derived. A base class may appear only once in a given derivation list.
+- Multiply Derived Classes Inherit State from Each Base Class
+- Derived Constructors Initialize All Base Classes
+- Inherited Constructors and Multiple Inheritance
+- Destructors and Multiple Inheritance
+- Copy and Move Operations for Multiply Derived Classes
+
+examples:
+- [demo1: ZooAnimal](./tools_for_large_programs/multiple_and_virtual_inheritance/animal/)
