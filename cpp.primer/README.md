@@ -530,3 +530,17 @@ examples:
 ##### 18.3.3. Class Scope under Multiple Inheritance
 > Under multiple inheritance, this same lookup happens simultaneously among all the direct base classes. If a name is found through more than one base class, then use of that name is ambiguous.
 
+##### 18.3.4. Virtual Inheritance
+> Virtual inheritance lets a class specify that it is willing to share its base class. The shared base-class subobject is called a virtual base class. Regardless of how often the same virtual base appears in an inheritance hierarchy, the derived object contains only one, shared subobject for that virtual base class.
+- A Different `Panda` Class
+- Using a Virtual Base Class
+- Normal Conversions to Base Are Supported
+- Visibility of Virtual Base-Class Members
+
+examples:
+- [demo1: a different ZooAnimal](./tools_for_large_programs/multiple_and_virtual_inheritance/animal2/)
+
+##### 18.3.5. Constructors and Virtual Inheritance
+> In a virtual derivation, the virtual base is initialized by the most derived constructor.
+- How a Virtually Inherited Object Is Constructed
+- Constructor and Destructor Order
