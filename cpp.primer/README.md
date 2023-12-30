@@ -552,3 +552,38 @@ examples:
 - The `malloc` and `free` Functions
 ##### 19.1.2. Placement `new` Expressions
 - Explicit Destructor Invocation
+
+#### 19.2. Run-Time Type Identification
+> Run-time type identification (RTTI) is provided through two operators:
+>  • The `typeid` operator, which returns the type of a given expression
+>  • The `dynamic_cast` operator, which safely converts a pointer or reference to a base type into a pointer or reference to a derived type.
+##### 19.2.1. The `dynamic_cast` Operator
+- Pointer-Type `dynamic_cast`s
+- Reference-Type `dynamic_cast`s
+examples:
+- [demo1](./specialized_tools_and_techniques/runtime_type_identification/dynamic_cast_demo1.cpp)
+##### 19.2.2. The `typeid` Operator
+> The `typeid` operator allows a program to ask of an expression: What type is your object?
+> A typeid expression has the form typeid(e) where e is any expression or a type name. The result of a typeid operation is a reference to a const object of a library type named type_info, or a type publicly derived from type_info.
+- Using the `typeid` Operator
+examples:
+- [demo1](./specialized_tools_and_techniques/runtime_type_identification/typeid_demo1.cpp)
+
+##### 19.2.3. Using RTTI
+- The Class Hierarchy
+- A Type-Sensitive Equality Operator
+- The Virtual `equal` Functions
+- The Base-Class `equal` Function
+examples:
+- [demo1](./specialized_tools_and_techniques/runtime_type_identification/equal_demo.cpp)
+
+##### 19.2.4. The `type_info` Class
+> The exact definition of the type_info class varies by compiler. However, the standard guarantees that the class will be defined in the typeinfo header and that the class will provide at least the operations:
+>  - *t1 == t2*
+>  - *t1 != t2*
+>  - *t.name()*
+>  - *t1.before(t2)*
+> The class also provides a public virtual destructor, because it is intended to serve as a base class. When a compiler wants to provide additional type information, it normally does so in a class derived from type_info.
+> There is no type_info default constructor, and the copy and move constructors and the assignment operators are all defined as deleted. Therefore, we cannot define, copy, or assign objects of type type_info. The only way to create a type_info object is through the typeid operator.
+examples:
+- [demo1](./specialized_tools_and_techniques/runtime_type_identification/typeid_demo1.cpp)
