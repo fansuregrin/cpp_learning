@@ -544,3 +544,11 @@ examples:
 > In a virtual derivation, the virtual base is initialized by the most derived constructor.
 - How a Virtually Inherited Object Is Constructed
 - Constructor and Destructor Order
+
+### Chapter 19. Specialized Tools and Techniques
+#### 19.1. Controlling Memory Allocation
+##### 19.1.1. Overloading `new` and `delete`
+- The `operator new` and `operator delete` Interface
+- The `malloc` and `free` Functions
+##### 19.1.2. Placement `new` Expressions
+- Explicit Destructor Invocation
