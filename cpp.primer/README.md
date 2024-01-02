@@ -587,3 +587,14 @@ examples:
 > There is no type_info default constructor, and the copy and move constructors and the assignment operators are all defined as deleted. Therefore, we cannot define, copy, or assign objects of type type_info. The only way to create a type_info object is through the typeid operator.
 examples:
 - [demo1](./specialized_tools_and_techniques/runtime_type_identification/typeid_demo1.cpp)
+
+#### 19.3. Enumerations
+> Enumerations let us group together sets of integral constants. Like classes, each enumeration defines a new type. Enumerations are literal types.
+- Enumerators
+- Like Classes, Enumerations Define New Types
+- Specifying the Size of an `enum`
+- Forward Declarations for Enumerations
+- Parameter Matching and Enumerations
+
+examples:
+- [demo1](./specialized_tools_and_techniques/enumerations/demo1.cpp)
