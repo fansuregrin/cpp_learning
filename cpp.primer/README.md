@@ -598,3 +598,29 @@ examples:
 
 examples:
 - [demo1](./specialized_tools_and_techniques/enumerations/demo1.cpp)
+
+#### 19.4. Pointer to Class Member
+> A pointer to member is a pointer that can point to a nonstatic member of a class. Normally a pointer points to an object, but a pointer to member identifies a member of a class, not an object of that class.
+##### 19.4.1. Pointers to Data Members
+- Using a Pointer to Data Member
+- A Function Returning a Pointer to Data Member
+
+examples:
+- [demo1](./specialized_tools_and_techniques/pointer_to_class_member/demo1.cpp)
+
+##### 19.4.2. Pointers to Member Functions
+- Using a Pointer to Member Function
+- Using Type Aliases for Member Pointers
+- Pointer-to-Member Function Tables
+
+examples:
+- [demo1: pointers to member function](./specialized_tools_and_techniques/pointer_to_class_member/pointers_to_member_functions_demo1.cpp)
+- [demo2: pointer-to-member function tables](./specialized_tools_and_techniques/pointer_to_class_member/pointers_to_member_functions_demo2.cpp)
+
+#### 19.4.3. Using Member Functions as Callable Objects
+- Using `function` to Generate a Callable
+- Using `mem_fn` to Generate a Callable
+- Using `bind` to Generate a Callable
+
+examples:
+- [demo1](./specialized_tools_and_techniques/pointer_to_class_member/using_member_function_as_callable_demo.cpp)
