@@ -57,6 +57,18 @@ examples:
 > A class can allow another class or function to access its nonpublic members by making that class or function a friend. 
 - Declarations for Friends
 
+#### 7.3. Additional Class Features
+##### 7.3.1. Class Members Revisited
+- Defining a Type Member
+- Member Functions of class `Screen`
+- Making Members `inline`
+- Overloading Member Functions
+- `mutable` Data Members
+- Initializers for Data Members of Class Type
+
+examples:
+- [demo1](./classes/screen2/)
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
