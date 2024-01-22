@@ -69,6 +69,13 @@ examples:
 examples:
 - [demo1](./classes/screen2/)
 
+##### 7.3.2. Functions That Return `*this`
+- Returning `*this` from a const Member Function
+- Overloading Based on `const`
+
+examples:
+- [demo1: Screen::set/move/display](./classes/screen2/screen.h)
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
