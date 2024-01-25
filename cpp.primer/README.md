@@ -92,6 +92,18 @@ examples:
 - [demo1: making `WindowMgr` a friend of `Screen`](./classes/screen2/screen.h)
 - [demo2: making `WindowMgr::clear` a friend of `Screen`](./classes/screen3/screen.cpp)
 
+#### 7.4. Class Scope
+- Scope and Members Defined outside the Class
+
+examples:
+- [demo1: `WindowMgr::clear` and `WindowMgr::add_screen`](./classes/screen2/win_mgr.h)
+
+##### 7.4.1. Name Lookup and Class Scope
+- Type Names Are Special
+- Normal Block-Scope Name Lookup inside Member Definitions
+- After Class Scope, Look in the Surrounding Scope
+- Names Are Resolved Where They Appear within a File
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
