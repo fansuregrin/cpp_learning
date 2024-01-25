@@ -76,6 +76,12 @@ examples:
 examples:
 - [demo1: Screen::set/move/display](./classes/screen2/screen.h)
 
+##### 7.3.3. Class Types
+> Every class defines a unique type. We can refer to a class type directly, by using the class name as a type name. Alternatively, we can use the class name following the keyword `class` or `struct`.
+- Class Declarations
+> We can declare a class without defining it. This declaration, sometimes referred to as a forward declaration. After a declaration and before a definition is seen, the class type is an incomplete type.
+> We can use an incomplete type in only limited ways: We can define pointers or references to such types, and we can declare (but not define) functions that use an incomplete type as a parameter or return type.
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
