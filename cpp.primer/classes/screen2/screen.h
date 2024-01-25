@@ -2,6 +2,8 @@
 #include <iostream>
 
 class Screen {
+    // Window_mgr members can access the private parts of class Screen
+    friend class WindowMgr;
 public:
     typedef std::string::size_type pos;
 
