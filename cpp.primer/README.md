@@ -82,6 +82,16 @@ examples:
 > We can declare a class without defining it. This declaration, sometimes referred to as a forward declaration. After a declaration and before a definition is seen, the class type is an incomplete type.
 > We can use an incomplete type in only limited ways: We can define pointers or references to such types, and we can declare (but not define) functions that use an incomplete type as a parameter or return type.
 
+##### 7.3.4. Friendship Revisited
+- Friendship between Classes
+- Making A Member Function a Friend
+- Overloaded Functions and Friendship
+- Friend Declarations and Scope
+
+examples:
+- [demo1: making `WindowMgr` a friend of `Screen`](./classes/screen2/screen.h)
+- [demo2: making `WindowMgr::clear` a friend of `Screen`](./classes/screen3/screen.cpp)
+
 ## Part II: The C++ Library
 ## Part III: Tools for Class Authors
 ### Chapter 13. Copy Control
