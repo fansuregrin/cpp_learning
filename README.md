@@ -9,7 +9,7 @@ Code for homework and exercises from online course, *[C++程序设计](https://w
 Code for the book: [C++ Primer](https://dl.acm.org/doi/10.5555/2423877), which is a bestselling programming tutorial and reference completely rewritten for the C++11 standard.
 
 ## 4.cpp.stl
-Code for the book: The C++ Standard Library.
+Code for the book: [The C++ Standard Library](http://www.cppstdlib.com/).
 
 ## 5.others
 Other c++ codes.
