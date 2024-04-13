@@ -1,0 +1,9 @@
+These are the examples from the following book:
+
+ Nicolai M. Josuttis
+ The C++ Standard Library - A Tutorial and Reference, 2nd Edition
+ Addison Wesley Longman, 2012
+ ISBN-13:  978-0-321-62321-8
+ ISBN-10:          0-321-62321-5
+
+Copyright © 2012 by Addison Wesley Longman, Inc. and Nicolai M. Josuttis.
