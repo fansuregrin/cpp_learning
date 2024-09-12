@@ -5,7 +5,7 @@
 constexpr int MSG_LEN = 25;
 
 template <typename T>
-void f(const T &x, const std::string &msg) {
+void f(T &x, const std::string &msg) {
     std::cout << std::setw(MSG_LEN) << std::left << msg << " lvalue" << std::endl;
 }
 
@@ -19,6 +19,12 @@ struct A {
     void mf() {} // non-static member function
     static void smf() {} // static member function
     enum Color { RED, GREEN, BLUE };  // member enumerator
+
+    void g() { f(this, "this"); }
+};
+
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
 };
 
 int main() {
@@ -75,7 +81,7 @@ int main() {
     f(&a, "&a");
     f(&arr[2], "&arr[2]");
 
-    // 8) the member of object,
+    // 8) a.m, the member of object,
     //    where the member is a member enumerator or a non-static member function
     A obj;
     f(obj.mv, "obj.mv");
@@ -91,7 +97,7 @@ int main() {
 
     f(obj.smf, "obj.smf"); // lvalue!!!
 
-    // 9) the built-in member of pointer expression,
+    // 9) p->m, the built-in member of pointer expression,
     //    where m is a member enumerator or a non-static member function
     A *p = &obj;
     f(p->mv, "p->mv");
@@ -99,5 +105,35 @@ int main() {
     // f(p->mf, "p->mf");
     f(p->smf, "p->smf");
 
-    
+    // 10) a.*mp, the pointer to member of object expression,
+    //     where mp is a pointer to member function
+    auto pmf = &A::mf;
+    auto pmv = &A::mv;
+    // a pointer to a bound function may only be used to call the function
+    // f(obj.*pmf, "obj.*pmf");
+    f(obj.*pmv, "obj.*pmv");
+
+    // 11) p->*mp, the built-in pointer to member of pointer expression,
+    //     where mp is a pointer to member function
+    // f(p->*pmf, "p->*pmf");
+    f(p->*pmv, "p->*pmv");
+
+    // 12) `a,b`, the built-in comma expression, where b is an prvalue
+    f((a, 42), "a, 42");
+
+    // 13) the ternary conditional expression for certain b and c
+    f(true ? a : 42, "true ? a : 42");
+    f(true ? a+b : a-b, "true ? a+a : a-b");
+
+    // 14) a cast expression to non-reference type
+    f(static_cast<double>(a), "static_cast<double>(a)");
+    f((double)b, "(double)b");
+
+    // 15) the this pointer
+    obj.g();
+
+    // 16) an enumerator
+    Day today = Day::FRIDAY;
+    f(Day::SATURDAY, "Day::SATURDAY");
+    f(today, "today");
 }
