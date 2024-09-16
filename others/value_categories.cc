@@ -27,6 +27,11 @@ enum Day {
     SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
 };
 
+template <int v>
+void foo() {
+    f(v, "v");
+}
+
 int main() {
     //===========
     // prvalue
@@ -136,4 +141,10 @@ int main() {
     Day today = Day::FRIDAY;
     f(Day::SATURDAY, "Day::SATURDAY");
     f(today, "today");
+
+    // 17) a non-type template parameter of a scalar type
+    foo<3>();
+
+    // 18) lambda expression
+    f([](){}, "lambda expression");
 }
