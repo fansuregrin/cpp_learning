@@ -16,12 +16,17 @@ void f(T &&x, const std::string &msg) {
 
 struct A {
     int mv;  // member variable
+    static int smv; // static member variable
     void mf() {} // non-static member function
     static void smf() {} // static member function
     enum Color { RED, GREEN, BLUE };  // member enumerator
 
     void g() { f(this, "this"); }
 };
+
+int A::smv = 0;
+
+int gi = 1;
 
 enum Day {
     SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
@@ -31,6 +36,13 @@ template <int v>
 void foo() {
     f(v, "v");
 }
+
+template <int& v>
+void bar() {
+    f(v, "v");
+}
+
+void h() {} 
 
 int main() {
     //===========
@@ -147,4 +159,76 @@ int main() {
 
     // 18) lambda expression
     f([](){}, "lambda expression");
+
+    //===========
+    // lrvalue
+    //===========
+    // 1) the name of a variable, a function, a template parameter object(since C++20), 
+    //    or a data member, regardless of type, such as std::cin or std::endl.
+    int && rref = 1;
+    f(a, "a");
+    f(obj, "obj");
+    f(foo<1>, "foo<1>");
+    f(obj.smf, "obj.smf");
+    f(obj.mv, "obj.mv");
+    f(rref, "rref");
+    f(std::cout, "std::cout");
+
+    // 2) a function call or an overloaded operator expression,
+    //    whose return type is lvalue reference
+    f(++it, "++it");
+    f(s1 += "abc", "s1 += \"abc\"");
+
+    // 3) built-in assignment and compound assignment expressions
+    f(a = 4, "a = 4");
+    f(b -= 1, "b -= 1");
+
+    // 4) built-in pre-increment and pre-decrement expressions
+    f(++a, "++a");
+    f(--b, "--b");
+
+    // 5) built-in indirection expression
+    int *pa = &a;
+    f(*pa, "*pa");
+
+    // 6) a[n] and p[n], the built-in subscript expressions, 
+    //    where one operand in a[n] is an array lvalue
+    f(arr[0], "arr[0]");
+
+    // 7) `a.m`, the member of object expression, except where `m` is a member enumerator 
+    //    or a non-static member function,
+    //    or where `a` is an rvalue and `m` is a non-static data member of object type
+    f(obj.mv, "obj.mv");
+    f(obj.smv, "obj.smv");
+    f(obj.smf, "obj.smf");
+
+    // 8) `p->m`, the built-in member of pointer expression,
+    //    except where `m` is a member enumerator or a non-static member function
+
+    // 9) `a.*mp`, the pointer to member of object expression,
+    //    where `a` is an lvalue and `mp` is a pointer to data member
+
+    // 10) `p->*mp`, the built-in pointer to member of pointer expression,
+    //     where `mp` is a pointer to data member
+
+    // 11) `a, b`, the built-in comma expression, where `b` is an lvalue
+    f((a, b), "a, b");
+
+    // 12) `a ? b : c`, the ternary conditional expression for certain `b` and `c`
+    f(true ? a : b, "true ? a : b");
+
+    // 13) a string literal
+    f("hello", "\"hello\"");
+
+    // 14) a cast expression to lvalue reference type
+    f(static_cast<int&>(a), "static_cast<int&>(a)");
+
+    // 15) a non-type template parameter of an lvalue reference type
+    f(bar<gi>, "bar<gi>");
+
+    // 16) a function call or an overloaded operator expression,
+    //     whose return type is rvalue reference to function
+
+    // 17） a cast expression to rvalue reference to function type
+    f(static_cast<void(&&)()>(h), "static_cast<void(&&)()>(h)");
 }
