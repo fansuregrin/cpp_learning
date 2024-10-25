@@ -861,3 +861,357 @@ main 运行过程中的内存布局：
     |     vptr1      |          |
 -80 +----------------+  <-------+ %rsp
 ```
+
+**派生类覆盖了第二个基类的方法**
+```cpp
+#include <cstdint>
+#include <cstdio>
+
+class B {
+public:
+    virtual void f() { printf("B::f()\n"); }
+    virtual ~B() { printf("B::~B()\n"); }
+    int64_t m_b;
+};
+
+class D {
+public:
+    virtual void g() { printf("D::g()\n"); }
+    virtual ~D() { printf("D::~D()\n"); }
+    int64_t m_d;
+};
+
+class C : public B {
+public:
+    virtual void f() { printf("C::f()\n"); }
+    virtual ~C() { printf("C::~C()\n"); }
+    int64_t m_c;
+};
+
+class E : public B, public D {
+public:
+    virtual void g() { printf("E::g()\n"); }
+    virtual ~E() { printf("E::~E()\n"); }
+    int64_t m_e;
+};
+
+int main() {
+    E e;
+    E *pe = &e;
+    B *pb = &e;
+    D *pd = &e;
+    pe->f();
+    pe->g();
+    pb->f();
+    pd->g();  // 实际调用的是 E 重写的 g()，而不是基类 D 的 g()
+}
+```
+
+重点关注 `pd->g()` 的汇编代码：
+```assembly
+.LC0:
+        .string "B::f()"
+B::f():
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $.LC0, %edi
+        call    puts
+        nop
+        leave
+        ret
+.LC1:
+        .string "B::~B()"
+B::~B() [base object destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $vtable for B+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        movl    $.LC1, %edi
+        call    puts
+        nop
+        leave
+        ret
+B::~B() [deleting destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movq    -8(%rbp), %rax
+        movq    %rax, %rdi
+        call    B::~B() [complete object destructor]
+        movq    -8(%rbp), %rax
+        movl    $16, %esi
+        movq    %rax, %rdi
+        call    operator delete(void*, unsigned long)
+        leave
+        ret
+.LC2:
+        .string "D::g()"
+D::g():
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $.LC2, %edi
+        call    puts
+        nop
+        leave
+        ret
+.LC3:
+        .string "D::~D()"
+D::~D() [base object destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $vtable for D+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        movl    $.LC3, %edi
+        call    puts
+        nop
+        leave
+        ret
+D::~D() [deleting destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movq    -8(%rbp), %rax
+        movq    %rax, %rdi
+        call    D::~D() [complete object destructor]
+        movq    -8(%rbp), %rax
+        movl    $16, %esi
+        movq    %rax, %rdi
+        call    operator delete(void*, unsigned long)
+        leave
+        ret
+.LC4:
+        .string "E::g()"
+E::g():
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $.LC4, %edi
+        call    puts
+        nop
+        leave
+        ret
+non-virtual thunk to E::g():
+        ; %rdi 指向 e 的D部分的起始位置，这里减了16，偏移到e的起始位置
+        ; 这样 E::g() 才能正确地访问对象 e，而不是只能访问e中的D部分
+        subq    $16, %rdi
+        
+        jmp     .LTHUNK0
+.LC5:
+        .string "E::~E()"
+E::~E() [base object destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movl    $vtable for E+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        movl    $vtable for E+64, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, 16(%rax)
+        movl    $.LC5, %edi
+        call    puts
+        movq    -8(%rbp), %rax
+        addq    $16, %rax
+        movq    %rax, %rdi
+        call    D::~D() [base object destructor]
+        movq    -8(%rbp), %rax
+        movq    %rax, %rdi
+        call    B::~B() [base object destructor]
+        nop
+        leave
+        ret
+non-virtual thunk to E::~E() [complete object destructor]:
+        subq    $16, %rdi
+        jmp     .LTHUNK1
+E::~E() [deleting destructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movq    -8(%rbp), %rax
+        movq    %rax, %rdi
+        call    E::~E() [complete object destructor]
+        movq    -8(%rbp), %rax
+        movl    $40, %esi
+        movq    %rax, %rdi
+        call    operator delete(void*, unsigned long)
+        leave
+        ret
+non-virtual thunk to E::~E() [deleting destructor]:
+        subq    $16, %rdi
+        jmp     .LTHUNK2
+B::B() [base object constructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        movq    %rdi, -8(%rbp)
+        movl    $vtable for B+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        nop
+        popq    %rbp
+        ret
+D::D() [base object constructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        movq    %rdi, -8(%rbp)
+        movl    $vtable for D+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        nop
+        popq    %rbp
+        ret
+E::E() [base object constructor]:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        subq    $16, %rsp
+        movq    %rdi, -8(%rbp)
+        movq    -8(%rbp), %rax
+        movq    %rax, %rdi
+        call    B::B() [base object constructor]
+        movq    -8(%rbp), %rax
+        addq    $16, %rax
+        movq    %rax, %rdi
+        call    D::D() [base object constructor]
+        movl    $vtable for E+16, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, (%rax)
+        movl    $vtable for E+64, %edx
+        movq    -8(%rbp), %rax
+        movq    %rdx, 16(%rax)
+        nop
+        leave
+        ret
+main:
+        pushq   %rbp
+        movq    %rsp, %rbp
+        pushq   %rbx
+        subq    $72, %rsp
+        
+        ; E e;
+        leaq    -80(%rbp), %rax
+        movq    %rax, %rdi
+        call    E::E() [complete object constructor]
+        
+        ; E *pe = &e;
+        leaq    -80(%rbp), %rax
+        movq    %rax, -24(%rbp)
+        
+        ; B *pb = &e;
+        leaq    -80(%rbp), %rax
+        movq    %rax, -32(%rbp)
+        
+        ; D *pd = &e;
+        leaq    -80(%rbp), %rax
+        addq    $16, %rax
+        movq    %rax, -40(%rbp)
+        
+        ; pe->f();
+        movq    -24(%rbp), %rax
+        movq    (%rax), %rax
+        movq    (%rax), %rdx
+        movq    -24(%rbp), %rax
+        movq    %rax, %rdi
+        call    *%rdx
+        
+        ; pe->g();
+        movq    -24(%rbp), %rax
+        movq    (%rax), %rax
+        addq    $24, %rax
+        movq    (%rax), %rdx
+        movq    -24(%rbp), %rax
+        movq    %rax, %rdi
+        call    *%rdx
+        
+        ; pb->f();
+        movq    -32(%rbp), %rax
+        movq    (%rax), %rax
+        movq    (%rax), %rdx
+        movq    -32(%rbp), %rax
+        movq    %rax, %rdi
+        call    *%rdx
+        
+        ; pd->g();
+        movq    -40(%rbp), %rax
+        movq    (%rax), %rax
+        movq    (%rax), %rdx
+        movq    -40(%rbp), %rax
+        movq    %rax, %rdi
+        call    *%rdx
+        
+        leaq    -80(%rbp), %rax
+        movq    %rax, %rdi
+        call    E::~E() [complete object destructor]
+        movl    $0, %eax
+        
+        jmp     .L17
+        movq    %rax, %rbx
+        leaq    -80(%rbp), %rax
+        movq    %rax, %rdi
+        call    E::~E() [complete object destructor]
+        movq    %rbx, %rax
+        movq    %rax, %rdi
+        call    _Unwind_Resume
+.L17:
+        movq    -8(%rbp), %rbx
+        leave
+        ret
+vtable for E:
+        .quad   0
+        .quad   typeinfo for E
+        .quad   B::f()
+        .quad   E::~E() [complete object destructor]
+        .quad   E::~E() [deleting destructor]
+        .quad   E::g()
+        .quad   -16
+        .quad   typeinfo for E
+        .quad   non-virtual thunk to E::g()  ; non-virtual thunk 到底干了什么？
+        .quad   non-virtual thunk to E::~E() [complete object destructor]
+        .quad   non-virtual thunk to E::~E() [deleting destructor]
+vtable for D:
+        .quad   0
+        .quad   typeinfo for D
+        .quad   D::g()
+        .quad   D::~D() [complete object destructor]
+        .quad   D::~D() [deleting destructor]
+vtable for B:
+        .quad   0
+        .quad   typeinfo for B
+        .quad   B::f()
+        .quad   B::~B() [complete object destructor]
+        .quad   B::~B() [deleting destructor]
+typeinfo for E:
+        .quad   vtable for __cxxabiv1::__vmi_class_type_info+16
+        .quad   typeinfo name for E
+        .long   0
+        .long   2
+        .quad   typeinfo for B
+        .quad   2
+        .quad   typeinfo for D
+        .quad   4098
+typeinfo name for E:
+        .string "1E"
+typeinfo for D:
+        .quad   vtable for __cxxabiv1::__class_type_info+16
+        .quad   typeinfo name for D
+typeinfo name for D:
+        .string "1D"
+typeinfo for B:
+        .quad   vtable for __cxxabiv1::__class_type_info+16
+        .quad   typeinfo name for B
+typeinfo name for B:
+        .string "1B"
+```
